@@ -1,0 +1,3 @@
+Rank=0
+Nentries 310021
+Station 5: Mean rate A 1.435188+-0.002882 Hz. Mean rate B 0.065099+-0.000614 Hz

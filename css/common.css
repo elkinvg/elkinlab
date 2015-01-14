@@ -1,0 +1,19 @@
+/* common.css */
+ a {text-decoration: none; font-weight: bold;} 
+ body {margin: 0;}
+.nobr {display: inline-block;}
+.blind {display: none;}
+.pheader{height: 30;}
+.pfooter{height: 30;}
+.pcontrol{width: 40%;}
+.pview{width: 60%;}
+.jcontrol{width: 20%;}
+.jview{width: 80%;}
+.ui-tooltip {max-width: 300px;}
+.logo {font-size: 22px; font-weight: bolder; margin-left: 30px;}
+.logo_labs {font-size: 22px; font-weight: bold; font-style: italic; margin-left: 5px;color: #FF0000;}
+.radiosel, .info, .parameters {font-size: 0.7em};
+.tabrow {white-space: nowrap;}
+.st_ok {font-weight: bolder; color: green;}
+.st_fail {font-weight: bolder; color: red;}
+

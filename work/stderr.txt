@@ -1,0 +1,1 @@
+Info in <TCanvas::SaveSource>: C++ Macro file: task6_1.C has been generated
