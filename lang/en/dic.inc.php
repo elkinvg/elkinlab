@@ -7,6 +7,13 @@ $dic = array(
 "journal_title"=>"journal","journal_title_tt"=>"View, edit stations status",
 "tasks_title"=>"tasks","tasks_title_tt"=>"View, create, edit jobs templates",
 "statistics_title"=>"statistics","statistics_title_tt"=>"Synoptical Statistics",
+//ELKIN-B
+    "task_list"=>"description", "task_list_tt"=>"description...",
+    "jobs_list"=>"Job list", "jobs_list_tt"=>"Job list...",
+    "new_job"=>"Create new job", "new_job_tt"=>"Create new job...",
+    "example_job"=>"Example of jobs", "example_job_tt"=>"Example of jobs...",
+    "shared_job"=>"shared jobs", "shared_job_tt"=>"shared jobs...",    
+//ELKIN-E    
 
 "misc_title" => "Participants and other info", "misc_title_tt" => "Participants, their activity and other info",
 "reports_title" => "User reports", "reports_title_tt" => "User reports number",
