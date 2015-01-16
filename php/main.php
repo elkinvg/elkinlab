@@ -31,33 +31,33 @@ function Control()
   
   //task list
   echo "<tr>";
-  echo "<td height=$page_height% class='ui-widget-content ui-corner-right jcontrol' align=center><a href='./jobs_list_v3.php'><span class='logo_labs' title='$dic[task_list_tt]'>$dic[task_list]</span></a></td>";
+  echo "<td height=$page_height% class='ui-widget-content ui-corner-right jcontrol' align=center><a href='./php/tempdev.php'><span class='logo_labs' title='$dic[task_list_tt]'>$dic[task_list]</span></a></td>";
   echo "<td class='ui-widget-content ui-corner-left jview' id=jobs_brief_descr>$context[lang] brief description</td>";
   //jobs_list
   echo "<tr>";
-  echo "<td height=$page_height% class='ui-widget-content ui-corner-right jcontrol' align=center><a href='./jobs_list_v3.php'><span class='logo_labs' title='$dic[jobs_list_tt]'>$dic[jobs_list]</span></a></td>";
+  echo "<td height=$page_height% class='ui-widget-content ui-corner-right jcontrol' align=center><a href='./php/tempdev.php'><span class='logo_labs' title='$dic[jobs_list_tt]'>$dic[jobs_list]</span></a></td>";
   echo "<td class='ui-widget-content ui-corner-left jview' id=jobs_brief_descr>$context[lang] brief description</td>";
   //new_job
   echo "<tr>";
-  echo "<td height=$page_height% class='ui-widget-content ui-corner-right jcontrol' align=center><a href='./jobs_list_v3.php'><span class='logo_labs' title='$dic[new_job_tt]'>$dic[new_job]</span></a></td>";
+  echo "<td height=$page_height% class='ui-widget-content ui-corner-right jcontrol' align=center><a href='./php/tempdev.php'><span class='logo_labs' title='$dic[new_job_tt]'>$dic[new_job]</span></a></td>";
   echo "<td class='ui-widget-content ui-corner-left jview' id=jobs_brief_descr>$context[lang] brief description</td>";
   //example_job
   echo "<tr>";
-  echo "<td height=$page_height% class='ui-widget-content ui-corner-right jcontrol' align=center><a href='./jobs_list_v3.php'><span class='logo_labs' title='$dic[example_job_tt]'>$dic[example_job]</span></a></td>";
+  echo "<td height=$page_height% class='ui-widget-content ui-corner-right jcontrol' align=center><a href='./php/tempdev.php'><span class='logo_labs' title='$dic[example_job_tt]'>$dic[example_job]</span></a></td>";
   echo "<td class='ui-widget-content ui-corner-left jview' id=jobs_brief_descr>$context[lang] brief description</td>";
   //shared_job
   echo "<tr>";
-  echo "<td height=$page_height% class='ui-widget-content ui-corner-right jcontrol' align=center><a href='./jobs_list_v3.php'><span class='logo_labs' title='$dic[shared_job_tt]'>$dic[shared_job]</span></a></td>";
+  echo "<td height=$page_height% class='ui-widget-content ui-corner-right jcontrol' align=center><a href='./php/tempdev.php'><span class='logo_labs' title='$dic[shared_job_tt]'>$dic[shared_job]</span></a></td>";
   echo "<td class='ui-widget-content ui-corner-left jview' id=jobs_brief_descr>$context[lang] brief description</td>";
   //ELKIN-E
 
   if ($context['utype']=="admin") {
       //BASIL
-  //jobs
-  echo "<tr>";
-  echo "<td height=25% class='ui-widget-content ui-corner-right jcontrol' align=center><a href='./jobs_list_v3.php'><span class='logo_labs' title='$dic[jobs_title_tt]'>$dic[jobs_title]</span></a></td>";
-  echo "<td class='ui-widget-content ui-corner-left jview' id=jobs_brief_descr>$context[lang] brief description</td>";
-  echo "</tr>";
+//  //jobs
+//  echo "<tr>";
+//  echo "<td height=25% class='ui-widget-content ui-corner-right jcontrol' align=center><a href='./jobs_list_v3.php'><span class='logo_labs' title='$dic[jobs_title_tt]'>$dic[jobs_title]</span></a></td>";
+//  echo "<td class='ui-widget-content ui-corner-left jview' id=jobs_brief_descr>$context[lang] brief description</td>";
+//  echo "</tr>";
  //journal 
   echo "<tr>";
   echo "<td height=25% class='ui-widget-content ui-corner-right jcontrol' align=center><a href='./journal_list_v3.php'><span class='logo_labs' title='$dic[journal_title_tt]'>$dic[journal_title]</span></a></td>";
