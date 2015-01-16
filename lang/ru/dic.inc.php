@@ -7,6 +7,13 @@ $dic = array(
 "journal_title"=>"журнал","journal_title_tt"=>"просмотр, редактирование аппаратного статуса станций",
 "tasks_title"=>"задачи","tasks_title_tt"=>"Просмотр, создание, редактирование задач-шаблонов",
 "statistics_title"=>"статистика","statistics_title_tt"=>"Сводная статистика",
+//ELKIN-B
+    "task_list"=>"описание задач", "task_list_tt"=>"описание задач...",
+    "jobs_list"=>"список заданий", "jobs_list_tt"=>"список заданий...",
+    "new_job"=>"новое задание", "new_job_tt"=>"новое задание...",
+    "example_job"=>"примеры задач", "example_job_tt"=>"примеры задач...",
+    "shared_job"=>"shared job", "shared_job_tt"=>"shared job...",    
+//ELKIN-E
 
 "misc_title" => "Участники проекта ...", "misc_title_tt" => "Участники, активность и др.",
 "reports_title" => "Научных отчетов", "reports_title_tt" => "Количество научных отчетов пользователей",
