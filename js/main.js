@@ -33,9 +33,12 @@ $(".tt_switch").click(function(){
 function LoadBriefDescr()
 {
    $("#jobs_brief_descr").load("lang/"+context.lang+"/jobs_brief_descr.html",function(){$(this).css({"font-size": "16px","padding":"30px"});});
-   $("#journal_brief_descr").load("lang/"+context.lang+"/journal_brief_descr.html",function(){$(this).css({"font-size": "16px","padding":"30px"});});
+   //$("#journal_brief_descr").load("lang/"+context.lang+"/journal_brief_descr.html",function(){$(this).css({"font-size": "16px","padding":"30px"});});
    $("#tasks_brief_descr").load("lang/"+context.lang+"/tasks_brief_descr.html",function(){$(this).css({"font-size": "16px","padding":"30px"});});
-   $("#statistics_brief_descr").load("lang/"+context.lang+"/statistics_brief_descr.html",function(){$(this).css({"font-size": "16px","padding":"30px"});});
+   //$("#statistics_brief_descr").load("lang/"+context.lang+"/statistics_brief_descr.html",function(){$(this).css({"font-size": "16px","padding":"30px"});});
+   $("#newjob_brief_descr").load("lang/"+context.lang+"/newjob_brief_descr.html",function(){$(this).css({"font-size": "16px","padding":"30px"});});
+   $("#examplejob_brief_descr").load("lang/"+context.lang+"/examlejob_brief_descr.html",function(){$(this).css({"font-size": "16px","padding":"30px"});});
+   $("#sharedjob_brief_descr").load("lang/"+context.lang+"/sharedjob_brief_descr.html",function(){$(this).css({"font-size": "16px","padding":"30px"});});
 }
 
 

@@ -36,19 +36,19 @@ function Control()
   //jobs_list
   echo "<tr>";
   echo "<td height=$page_height% class='ui-widget-content ui-corner-right jcontrol' align=center><a href='./php/tempdev.php'><span class='logo_labs' title='$dic[jobs_list_tt]'>$dic[jobs_list]</span></a></td>";
-  echo "<td class='ui-widget-content ui-corner-left jview' id=jobs_brief_descr>$context[lang] brief description</td>";
+  echo "<td class='ui-widget-content ui-corner-left jview' id=tasks_brief_descr>$context[lang] brief description</td>";
   //new_job
   echo "<tr>";
   echo "<td height=$page_height% class='ui-widget-content ui-corner-right jcontrol' align=center><a href='./php/tempdev.php'><span class='logo_labs' title='$dic[new_job_tt]'>$dic[new_job]</span></a></td>";
-  echo "<td class='ui-widget-content ui-corner-left jview' id=jobs_brief_descr>$context[lang] brief description</td>";
+  echo "<td class='ui-widget-content ui-corner-left jview' id=newjob_brief_descr>$context[lang] brief description</td>";
   //example_job
   echo "<tr>";
   echo "<td height=$page_height% class='ui-widget-content ui-corner-right jcontrol' align=center><a href='./php/tempdev.php'><span class='logo_labs' title='$dic[example_job_tt]'>$dic[example_job]</span></a></td>";
-  echo "<td class='ui-widget-content ui-corner-left jview' id=jobs_brief_descr>$context[lang] brief description</td>";
+  echo "<td class='ui-widget-content ui-corner-left jview' id=examplejob_brief_descr>$context[lang] brief description</td>";
   //shared_job
   echo "<tr>";
   echo "<td height=$page_height% class='ui-widget-content ui-corner-right jcontrol' align=center><a href='./php/tempdev.php'><span class='logo_labs' title='$dic[shared_job_tt]'>$dic[shared_job]</span></a></td>";
-  echo "<td class='ui-widget-content ui-corner-left jview' id=jobs_brief_descr>$context[lang] brief description</td>";
+  echo "<td class='ui-widget-content ui-corner-left jview' id=sharedjob_brief_descr>$context[lang] brief description</td>";
   //ELKIN-E
 
   if ($context['utype']=="admin") {
