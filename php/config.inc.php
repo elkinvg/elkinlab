@@ -62,9 +62,9 @@ $context['jobs']=my_getcookie("jobs"); if (!isset($context['jobs'])) $context['j
 $context['lang']=my_getcookie("lang"); if (!isset($context['lang'])) $context['lang']="en";
 //</COOKIES>
 
-<DEBUG>
+//<DEBUG>
 $context['lang']='ru';
-</DEBUG>
+//</DEBUG>
 
 function vars2js()
 {
