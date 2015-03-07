@@ -9,20 +9,45 @@
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
-<link href="css/common.css" rel="stylesheet" type="text/css">
+<!--<link href="css/common.css" rel="stylesheet" type="text/css">-->
 <script src='js/common.js' type='text/javascript'></script>
-<script src='js/jquery/jquery.js' type='text/javascript'></script>
-<script src='js/jquery/jquery-ui.js' type='text/javascript'></script>
-<link href='css/jquery/pepper-grinder/jquery-ui.css' rel='stylesheet' type='text/css'>
 
+
+<script type='text/javascript' src='js/jquery/jquery-2.1.3.min.js'></script>
+<link type='text/css' href='js/jquery/jquery-ui-1.11.3/themes/sunny/jquery-ui.css' rel='stylesheet' />
+<script type='text/javascript' src='js/jquery/jquery-ui-1.11.3/external/jquery/jquery.js'></script>
+<script type='text/javascript' src='js/jquery/jquery-ui-1.11.3/jquery-ui.js'></script>
+<script type='text/javascript' src='js/main.js'></script>
 <?php
 require "php/config.inc.php";
 require "lang/$context[lang]/dic.inc.php";
-vars2js();
+//vars2js();
 echo "<title>$dic[livni_logo] $dic[labs_logo]</title>";
 ?>
 
-<script type='text/javascript' src='js/main.js'></script>
+<style>
+    /* common.css */
+ a {text-decoration: none; font-weight: bold;} 
+ body {margin: 0;}
+.nobr {display: inline-block;}
+.blind {display: none;}
+.pheader{height: 30;}
+.pfooter{height: 30;}
+.pfooter_on{color: green;}
+.pfooter_off{color: red;}
+.pcontrol{width: 40%;}
+.pview{width: 60%;}
+.jcontrol{width: 20%;}
+.jview{width: 80%;}
+.ui-tooltip {max-width: 300px;}
+.logo {font-size: 22px; font-weight: bolder; margin-left: 30px;}
+.logo_labs {font-size: 22px; font-weight: bold; font-style: italic; margin-left: 5px;color: #FF0000;}
+.radiosel, .info, .parameters {font-size: 0.7em};
+.tabrow {white-space: nowrap;}
+.st_ok {font-weight: bolder; color: green;}
+.st_fail {font-weight: bolder; color: red;}
+</style>
+
 </head>
 
 <body>

@@ -30,6 +30,32 @@ $(".tt_switch").click(function(){
  $(this).html(new_t); 
 });
 
+// ELKIN-DEBUG B
+$(".tt_switch_debug").click(function(){
+ var debug_status = $(this).attr("status");
+ var new_t, new_tt;
+ if (debug_status>0) 
+ {
+   new_t ="debug on";
+   new_tt="Switch debug on";
+   my_setcookie("debug",0,exp_day,"/");
+//   $(document).tooltip({disabled:true});
+   debug_status=0; 
+ }
+ else 
+ {
+  new_t = "debug off";
+  new_tt= "Switch debug off";
+//  $(document).tooltip("enable");
+  my_setcookie("debug",1,exp_day,"/");
+  debug_status=1;   
+ }
+ $(this).attr("status",debug_status);
+ $(this).attr("title",new_tt);
+ $(this).html(new_t); 
+});
+// ELKIN-DEBUG E
+
 function LoadBriefDescr()
 {
    $("#jobs_brief_descr").load("lang/"+context.lang+"/jobs_brief_descr.html",function(){$(this).css({"font-size": "16px","padding":"30px"});});

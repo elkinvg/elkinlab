@@ -41,5 +41,7 @@ $dic = array(
 
 "help_off_title"=>"help off","help_off_title_tt"=>"Switch help off",
 "help_on_title"=>"help on","help_on_title_tt"=>"Switch help on",
+"debug_off_title"=>"debug off","debug_off_title_tt"=>"Switch debug off",
+"debug_on_title"=>"debug on","debug_on_title_tt"=>"Switch debug on",
 );
 ?>
