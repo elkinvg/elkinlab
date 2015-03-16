@@ -10,4 +10,4 @@ bck/*
 skin/*
 css/__history/*
 css/jquery*
-js/jquery*
+js/jquery/jquery*/*

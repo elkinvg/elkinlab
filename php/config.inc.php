@@ -76,11 +76,13 @@ $context['jobs']=my_getcookie("jobs"); if (!isset($context['jobs'])) $context['j
 $context['lang']=my_getcookie("lang"); if (!isset($context['lang'])) $context['lang']="en";
 }
 else {
-    $context['uuid']=0;
-    $context['user']="anonymous";
+    $uuid_deb = my_getcookie("uuid");
+    if(!isset($uuid_deb)) {$uuid_deb = 120;my_setcookie("uuid", $uuid_deb, $exp_day);}
+    $context['uuid']=120;
+    $context['user']="Elkin";
     $context['utype']="admin";
-    $context['visits']=-1;
-    $context['jobs']=0;
+    $context['visits']=100;
+    $context['jobs']=100;
     $context['lang']="ru";
 }
 //</COOKIES>
