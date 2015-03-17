@@ -42,40 +42,6 @@ else if ($oper == "load") {
         }
     }
 }
-else if ($oper=="save") 	//begin------------------------------------------------------------------------SAVE
-{	
-    $i=0;
-    $task_id=$_POST['params_task_id'];
-    $user_id=$_POST['uuid'];
-    $job_status=1; //pending
-    $query="INSERT INTO jobs (task_id,user_id,job_status,started) VALUES ($task_id, $user_id,$job_status,NOW())";
-    $result=mysqli_query($link,$query);
-
-    if (!$result) {echo mysqli_errno($link) . ": " . mysqli_error($link);}	
-    else 
-    {
-       $job_id=mysqli_insert_id($link);
-       while(isset($_POST['params_caption_'.$i]))
-       {
-          $caption=$_POST['params_caption_'.$i];
-          $name=$_POST['params_name_'.$i];
-          $type=$_POST['params_type_'.$i];
-          $def_val=$_POST['params_def_'.$i];    if (!isset($def_val)) $def_val=0;	//this if is for unset checkboxes (for shelkov)
-          $min_val=$_POST['params_min_'.$i];
-          $max_val=$_POST['params_max_'.$i];
-          $query="INSERT INTO jobpars (job_id,task_id,caption,name,type,def_val,min_val,max_val) VALUES ($job_id,$task_id, '$caption','$name',$type,'$def_val','$min_val','$max_val')";
-          $result=mysqli_query($link, $query);
-           if (!$result) break;
-           $i++;
-        }
-        //increment tasks.popularity
-        $query="UPDATE tasks SET popularity=popularity+1 WHERE task_id=$task_id LIMIT 1";
-        $result=mysqli_query($link, $query);
-        //SaveJob($job_id,$user_id);
-    }
-    if (!$result) {echo mysqli_errno($link) . ": " . mysqli_error($link);}	
-    $ret[] = array('par_number' => $i, 'job_id' => $job_id);
-}//end--------------------------------------------------------------------------------------------------- SAVE
 
 echo json_encode($ret);
 

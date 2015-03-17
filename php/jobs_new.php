@@ -436,8 +436,8 @@ if (isset($job_params_form)) {
 				    
 
 				    //$('#errordiv').append(" data.length: " + fields.length + "; <br>");
-				    $.post("taskpars-li.php", fields, function (data)
-				    //$.post("jobpars.php", fields, function (data)
+				    //$.post("taskpars-li.php", fields, function (data)
+				    $.post("jobpars-li.php", fields, function (data)
 				    {
 
 					var aret;
