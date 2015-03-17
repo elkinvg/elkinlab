@@ -142,10 +142,15 @@ if ($oper=="save") 	//begin-----------------------------------------------------
         //increment tasks.popularity
         $query="UPDATE tasks SET popularity=popularity+1 WHERE task_id=$task_id LIMIT 1";
         $result=mysqli_query($link, $query);
-        //SaveJob($job_id,$user_id);
+        SaveJob($job_id,$user_id);
     }
     if (!$result) {echo mysqli_errno($link) . ": " . mysqli_error($link);}	
     $ret[] = array('par_number' => $i, 'job_id' => $job_id);
 }//end--------------------------------------------------------------------------------------------------- SAVE
+
+echo json_encode($ret);
+
+mysql_close($link);
+
 
 ?>
