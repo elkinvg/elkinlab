@@ -12,7 +12,8 @@ $dic = array(
     "jobs_list"=>"список заданий", "jobs_list_tt"=>"список заданий...",
     "new_job"=>"новое задание", "new_job_tt"=>"новое задание...",
     "example_job"=>"примеры задач", "example_job_tt"=>"примеры задач...",
-    "shared_job"=>"shared job", "shared_job_tt"=>"shared job...",    
+    "shared_job"=>"shared job", "shared_job_tt"=>"shared job...",
+    "job_container"=>"задание ", "job_container_nf"=>"не найдено",
 //ELKIN-E
 
 "misc_title" => "Участники проекта ...", "misc_title_tt" => "Участники, активность и др.",

@@ -12,7 +12,26 @@ var exp_min = new Date(today.getTime() + 1 * 60 * 1000);
 var exp_day = new Date(today.getTime() + 24 * 60 * 60 * 1000);
 var exp_year = new Date(today.getTime() + 365 * 24 * 60 * 60 * 1000);
 
-var isTranslate = true;
+var isTranslate = false;
+
+function borderDel()
+{
+    $(".ppview").css("border-top", "0px");
+    $(".ppview").css("border-bottom", " 0px");
+    $(".ppcontrol").css("border-top", "0px");
+    $(".ppcontrol").css("border-bottom", " 0px");
+    $(".pjnew").css("border-top", "0px");
+    $(".pjnew").css("border-bottom", " 0px");
+}
+
+function heightDiv()
+{
+    var hight1 = $(".ppview").height();
+//			$(".pppanel").height(hight1);
+    $(".ppcontrol").height(hight1);
+}
+
+var rexNumber = new RegExp("^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?$", "i");
 
 function Translate_par(use_station_fun, pcap_fun, aret_fun, params_fun)
 {
@@ -21,7 +40,7 @@ function Translate_par(use_station_fun, pcap_fun, aret_fun, params_fun)
     if (use_station_fun)
     {
 	if (aret_fun.caption.indexOf("Use station") != -1 && params_fun.use_station != params_fun.none)
-	transl = pcap_fun.replace("Use station", params_fun.use_station.toString());
+	    transl = pcap_fun.replace("Use station", params_fun.use_station.toString());
     }
     else
     {

@@ -1,12 +1,13 @@
 <?php
-
+error_reporting(0);
 //taskpars: handles the 'livni.taskpars' table. Following is the list of functions currently supported:
 //oper={load, modify} note: load requires $ret global
 if (!isset($params_oper)) {
-    $oper = $_POST['params_oper'];
+    $oper = $_POST['oper'];
 }
 
-$task_id = $_POST['params_task_id'];
+$params = $_POST['params'];
+$task_id = $params['task_id'];
 //echo "<p>TASK_ID = $task_id</p><br>"; // for debug
 
 require "./connect.php";
@@ -34,7 +35,7 @@ else if ($oper == "load") {
     }
 
     $rows = mysqli_num_rows($result);
-    $ret = array();
+    
     if ($rows) {
         while ($row = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 //       $ret[]=array('caption' => $row['caption'], 'name' => $row['name'],  'type' => $row['type'],  'def_val' => $row['def_val'],  'min_val' => $row['min_val'],  'max_val' => $row['max_val']);
@@ -42,8 +43,8 @@ else if ($oper == "load") {
         }
     }
 }
-
-echo json_encode($ret);
+$ret_out = array('val' => $ret);
+echo json_encode($ret_out);
 
 mysqli_close($link);
 ?>

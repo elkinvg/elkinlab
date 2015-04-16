@@ -1,0 +1,21 @@
+<p class=page_title>Looking for anomalies</p>
+<div class='page_indent_main  hover_on_white'>
+
+<p>Since events of secondary cosmic rays registration are independent, the rate of our detecting stations should satisfy well known statistical lows. The goal of the task is to test at a given time interval and given time scale the assumption about randomness of detected events. This program provides possibility to search for non-random component of the rate related to physical reasons (short growth of the rate due to a supernova explosion) or to peculiarities of detecting stations (non-random electronic noise). </p>
+<p>The task has 8 input parameters:</p>
+<p>1,2) The beginning and the end of time interval</p>
+<p>3) Station number</p>
+<p>4,5) Maximal and minimal absolute value of the time difference between the channels of the station. This option gives possibility to select events of type A and B in arbitrary limits. The values can be variated within the range from 0 to 1200 ns.</p>
+<p>6) Number of bins for subdivision of chosen time interval</p>
+<p>7) Time scale Tau where randomness of the selected sample will be tested. Tau can be selected from the interval 1 microsecond - 10 000 seconds.</p>
+<p>8) Comments</p>
+<p>For each event the program opens the time window of Tau duration and calculates the number  of events N within this window. Time dependence on N distribution is shown as 2D histogram on the first plot produced by the program.</p>
+<p><img src="http://livni.jinr.ru/skin/task_descr_60_1.png"  hspace=15 vspace=15 border=1></p>
+<p>For the histogram presented on the plot the length of the time interval is 1 day and the bin size is 1 hour. Tau is 1 s. So from the plot we can say that the case, when the number of events in 1 s interval is zero, takes place ~600 times per hour, the case when exactly one event is detected in 1 s interval occurs 100-200 times per hour etc. But at 10 AM and 12 AM cases, when even 4 events were registered in 1 s, were detected.</p>
+<p><img src="http://livni.jinr.ru/skin/task_descr_60_2.png"  hspace=15 vspace=15 border=1></p>
+<p>On the second plot you can see that for the each time bin of the first histogram the value  -Log P was introduced to describe probability to obtain observed N-distribution under assumption that detected events are statistically independent and the mean rate is stable in time. Magnitudes of -Log P on the level of <3-5 mean that there is no evidence of non-random component in the rate at time scale Tau. Otherwise values >10 inform us about serious anomaly in the rate. </p>
+<p><img src="http://livni.jinr.ru/skin/task_descr_60_3.png"  hspace=15 vspace=15 border=1></p>
+<p>In the case of anomaly discovered an some time scale Tau, it's recommended to repeat studies for different values of Tau.  May be for them anomaly will be more evident.</p>
+<p>The last plot produced by the program is the projection of the first 2D histogram to the N axis. Black marks correspond to experimental points as far as yellow bins correspond to expected distribution in the case of pure statistical nature of observed rate.  It's easy to see by eyes the agreement between distributions.</p>
+
+</div>

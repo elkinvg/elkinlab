@@ -10,22 +10,26 @@
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
 <!--<link href="css/common.css" rel="stylesheet" type="text/css">-->
-<script src='js/common.js' type='text/javascript'></script>
+<!--<script src='js/common.js' type='text/javascript'></script>-->
 
 
-<script type='text/javascript' src='js/jquery/jquery-2.1.3.min.js'></script>
+<!--<script type='text/javascript' src='js/jquery/jquery-2.1.3.min.js'></script>
 <link type='text/css' href='js/jquery/jquery-ui-1.11.3/themes/sunny/jquery-ui.css' rel='stylesheet' />
 <script type='text/javascript' src='js/jquery/jquery-ui-1.11.3/external/jquery/jquery.js'></script>
-<script type='text/javascript' src='js/jquery/jquery-ui-1.11.3/jquery-ui.js'></script>
-<script type='text/javascript' src='js/main.js'></script>
+<script type='text/javascript' src='js/jquery/jquery-ui-1.11.3/jquery-ui.js'></script>-->
+<!--<script type='text/javascript' src='js/main.js'></script>-->
 <?php
-require "php/config.inc.php";
-require "lang/$context[lang]/dic.inc.php";
+//require './php/js.inc.php';
+$indexdir = true;
+require './php/common_page.inc.php';
+echo "<script type='text/javascript' src='js/main.js'></script>";
+//require "php/config.inc.php";
+//require "lang/$context[lang]/dic.inc.php";
 //vars2js();
 echo "<title>$dic[livni_logo] $dic[labs_logo]</title>";
 ?>
 
-<style>
+<!--<style>
     /* common.css */
  a {text-decoration: none; font-weight: bold;} 
  body {margin: 0;}
@@ -46,7 +50,7 @@ echo "<title>$dic[livni_logo] $dic[labs_logo]</title>";
 .tabrow {white-space: nowrap;}
 .st_ok {font-weight: bolder; color: green;}
 .st_fail {font-weight: bolder; color: red;}
-</style>
+</style>-->
 
 </head>
 

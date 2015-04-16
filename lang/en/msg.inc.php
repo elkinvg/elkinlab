@@ -115,5 +115,11 @@ $reg_form = array(
     'button_ok_profile' => 'Save',
     'button_cancel' => 'Cancel'
 );
+
+$jobs_table = array(
+    //'begin' => ''
+    'update'=>'Update',
+    'period'=>'Period: '
+);
 ?>
 

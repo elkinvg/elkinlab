@@ -1,7 +1,7 @@
 <?php
 //jobpars: handles the 'livni.jobpars' table. Following is the list of functions currently supported:
 //oper={save, delete,list, load} note: list requires $ret global
-
+error_reporting(0);
 $pp="..";
 $fname="params.txt";
 
@@ -26,14 +26,19 @@ function SaveJob($job_id,$uuid)
 	{
        $par_file = "$dir/$fname";
        $f = fopen($par_file,"a+");  if (!$f) return false;
-       $i=0;
-       while(isset($_POST['params_caption_'.$i]))
+       $ii=0;
+       $params = $_POST['params'];
+       $n = count($params);
+       
+       for ($i=0; $i < $n; $i++)
        {
-          $name=$_POST['params_name_'.$i];
-          $type=$_POST['params_type_'.$i];
-          $def_val=$_POST['params_def_'.$i];     if (!isset($def_val)) $def_val=0;	//this if is for unset checkboxes (for shelkov)
-          $min_val=$_POST['params_min_'.$i];
-          $max_val=$_POST['params_max_'.$i];
+          $name=$params[$i]['name'];
+          $type=$params[$i]['type'];
+          $def_val=$params[$i]['def_val'];    
+	  if (!isset($def_val)) $def_val=0;	//this if is for unset checkboxes (for shelkov)
+	      elseif ($def_val=='none') $def_val=0;
+	  $min_val=$params[$i]['min_val'];
+          $max_val=$params[$i]['max_val'];
           if ($type==2)	//date, time -----------------------------------------
           {
              if (strlen($def_val) > 10)   //time specified
@@ -73,7 +78,7 @@ function SaveJob($job_id,$uuid)
 
           $par="$name $value\n";
           if (fwrite($f,$par)==FALSE) {$ret=false; break;}
-          $i++;
+          $ii++;
         }
         fclose($f);
         if ($ret)
@@ -88,9 +93,9 @@ function SaveJob($job_id,$uuid)
 
 if (!isset($params_oper)) 
 {
-  $oper=$_POST['params_oper']; 
-  if (!isset($oper)) $oper=$_GET['params_oper']; 
-  if (!isset($oper)) $oper=$GLOBALS['params_oper'];
+  $oper=$_POST['oper']; 
+  if (!isset($oper)) $oper=$_GET['oper']; 
+  if (!isset($oper)) $oper=$GLOBALS['oper'];
   if (!isset($oper))$oper="goback";
 }
 else {$oper=$params_oper;}
@@ -116,8 +121,8 @@ if (!mysqli_select_db($link,"livni")) {
 if ($oper=="save") 	//begin------------------------------------------------------------------------SAVE
 {	
     $i=0;
-    $task_id=$_POST['params_task_id'];
-    $user_id=$_POST['uuid'];
+    $task_id=$_POST['task_id'];
+    $user_id=$_POST['user_id'];
     $job_status=1; //pending
     $query="INSERT INTO jobs (task_id,user_id,job_status,started) VALUES ($task_id, $user_id,$job_status,NOW())";
     $result=mysqli_query($link,$query);
@@ -126,31 +131,40 @@ if ($oper=="save") 	//begin-----------------------------------------------------
     else 
     {
        $job_id=mysqli_insert_id($link);
-       while(isset($_POST['params_caption_'.$i]))
+       $params = $_POST['params'];
+       $n = count($params);
+       $ii=0;
+       for ($i=0; $i < $n; $i++)
        {
-          $caption=$_POST['params_caption_'.$i];
-          $name=$_POST['params_name_'.$i];
-          $type=$_POST['params_type_'.$i];
-          $def_val=$_POST['params_def_'.$i];    if (!isset($def_val)) $def_val=0;	//this if is for unset checkboxes (for shelkov)
-          $min_val=$_POST['params_min_'.$i];
-          $max_val=$_POST['params_max_'.$i];
+          $caption=$params[$i]['caption'];
+          $name=$params[$i]['name'];
+          $type=$params[$i]['type'];
+          $def_val=$params[$i]['def_val'];    
+	  if (!isset($def_val)) $def_val=0;	//this if is for unset checkboxes (for shelkov)
+	      elseif ($def_val=='none') $def_val=0;
+	  $min_val=$params[$i]['min_val'];
+          $max_val=$params[$i]['max_val'];
           $query="INSERT INTO jobpars (job_id,task_id,caption,name,type,def_val,min_val,max_val) VALUES ($job_id,$task_id, '$caption','$name',$type,'$def_val','$min_val','$max_val')";
           $result=mysqli_query($link, $query);
            if (!$result) break;
-           $i++;
+           $ii++;
         }
         //increment tasks.popularity
         $query="UPDATE tasks SET popularity=popularity+1 WHERE task_id=$task_id LIMIT 1";
         $result=mysqli_query($link, $query);
         SaveJob($job_id,$user_id);
     }
-    if (!$result) {echo mysqli_errno($link) . ": " . mysqli_error($link);}	
-    $ret[] = array('par_number' => $i, 'job_id' => $job_id);
+    $errno = 0;
+    $error = "0";
+    if (!$result) {$errno= mysqli_errno($link); $error = mysqli_error($link);}	
+    $ret = array('errno'=>$errno,'error'=>$error,'par_number' => $ii, 'job_id' => $job_id);
 }//end--------------------------------------------------------------------------------------------------- SAVE
 
-echo json_encode($ret);
+$encode = json_encode($ret);
 
-mysql_close($link);
+echo $encode;
+
+mysqli_close($link);
 
 
 ?>

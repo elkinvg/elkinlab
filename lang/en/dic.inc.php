@@ -12,7 +12,8 @@ $dic = array(
     "jobs_list"=>"Job list", "jobs_list_tt"=>"Job list...",
     "new_job"=>"Create new job", "new_job_tt"=>"Create new job...",
     "example_job"=>"Example of jobs", "example_job_tt"=>"Example of jobs...",
-    "shared_job"=>"shared jobs", "shared_job_tt"=>"shared jobs...",    
+    "shared_job"=>"shared jobs", "shared_job_tt"=>"shared jobs...",
+    "job_container"=>"job ", "job_container_nf"=>"not found",
 //ELKIN-E    
 
 "misc_title" => "Participants and other info", "misc_title_tt" => "Participants, their activity and other info",

@@ -1,29 +1,29 @@
 <?php
 //main.php
 
-function pHeader()
-{
-  global $proj_home, $sweet_home,$dic;
-  echo "<tr><td colspan=2 class='ui-widget-header ui-corner-top pheader' align=left>";
-    echo "<span class=logo><a href='./php/debuginfo-page.php' title='$dic[livni_logo_tt]' id='proj_home'>$dic[livni_logo]</a></span>"; // for debuf-info
-  
-    //echo "<span class=logo>$dic[livni_logo]</span>";
-    
-    echo "<a href='$sweet_home' title='$dic[labs_logo_tt]' id='labs_home'><span class=logo_labs>$dic[labs_logo]</span></a>";
-  echo  "</td></tr>";
-}
-function pFooter(){
-    global $dic,$debug_status;
-    if ($debug_status)
-    {
-	echo "<tr><td class='ui-widget-content ui-corner-bottom pfooter' align=left><a href='/' class='tt_switch_debug' status=1 title='$dic[debug_off_title_tt]'><span class=pfooter_on>$dic[debug_off_title]</span></a></td>";
-    }
-    else {
-	echo "<tr><td class='ui-widget-content ui-corner-bottom pfooter' align=left><a href='/' class='tt_switch_debug' status=0 title='$dic[debug_on_title_tt]'><span class=pfooter_off>$dic[debug_on_title]</span></a></td>";
-    }
-    
-    echo "<td class='ui-widget-content ui-corner-bottom pfooter'  align=right><a href='#' class='tt_switch' status=1 title='$dic[help_off_title_tt]'>$dic[help_off_title]</a></td></tr>";    
-}
+//function pHeader()
+//{
+//  global $proj_home, $sweet_home,$dic;
+//  echo "<tr><td colspan=2 class='ui-widget-header ui-corner-top pheader' align=left>";
+//    echo "<span class=logo><a href='./php/debuginfo-page.php' title='$dic[livni_logo_tt]' id='proj_home'>$dic[livni_logo]</a></span>"; // for debuf-info
+//  
+//    //echo "<span class=logo>$dic[livni_logo]</span>";
+//    
+//    echo "<a href='$sweet_home' title='$dic[labs_logo_tt]' id='labs_home'><span class=logo_labs>$dic[labs_logo]</span></a>";
+//  echo  "</td></tr>";
+//}
+//function pFooter(){
+//    global $dic,$debug_status;
+//    if ($debug_status)
+//    {
+//	echo "<tr><td class='ui-widget-content ui-corner-bottom pfooter' align=left><a href='/' class='tt_switch_debug' status=1 title='$dic[debug_off_title_tt]'><span class=pfooter_on>$dic[debug_off_title]</span></a></td>";
+//    }
+//    else {
+//	echo "<tr><td class='ui-widget-content ui-corner-bottom pfooter' align=left><a href='/' class='tt_switch_debug' status=0 title='$dic[debug_on_title_tt]'><span class=pfooter_off>$dic[debug_on_title]</span></a></td>";
+//    }
+//    
+//    echo "<td class='ui-widget-content ui-corner-bottom pfooter'  align=right><a href='#' class='tt_switch' status=1 title='$dic[help_off_title_tt]'>$dic[help_off_title]</a></td></tr>";    
+//}
 
 function View(){}
 
@@ -49,7 +49,7 @@ function Control()
   echo "<td class='ui-widget-content ui-corner-left jview' id=jobs_brief_descr>$context[lang] brief description</td>";
   //jobs_list
   echo "<tr>";
-  echo "<td height=$page_height% class='ui-widget-content ui-corner-right jcontrol' align=center><a href='./php/tempdev.php'><span class='logo_labs' title='$dic[jobs_list_tt]'>$dic[jobs_list]</span></a></td>";
+  echo "<td height=$page_height% class='ui-widget-content ui-corner-right jcontrol' align=center><a href='./php/job_list.php'><span class='logo_labs' title='$dic[jobs_list_tt]'>$dic[jobs_list]</span></a></td>";
   echo "<td class='ui-widget-content ui-corner-left jview' id=tasks_brief_descr>$context[lang] brief description</td>";
   //new_job
   echo "<tr>";
@@ -93,11 +93,13 @@ function Control()
 
 function Rendermain()
 {
-  echo "<table class='ui-widget' width=100% height=100% border=0>";  
-  pHeader();
+  pHeader("");
+  echo "<div class='ui-widget-content pjnew' align=center valign=top >";
+  echo "<table class='ui-widget' width=100% height=100% border=0>";
   Control();
-  pFooter();  
   echo "</table>";
+  echo "</div>";
+  pFooter();  
 }
 
 ?>

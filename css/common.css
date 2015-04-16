@@ -1,79 +1,78 @@
-a:hover {text-decoration: none; color: #ff0;} 
-a, a:link, a:visited, a:active {text-decoration: none;}
-a:visited {color:black}
-a:visited:hover{text-decoration: none; color: #ff0;} 
+/* common.css */
+ a {text-decoration: none; font-weight: bold;} 
+ body {margin: 0;}
+ html,boby, .pmain {width: auto; height: 100%; margin: 2px}
+.pmain{position: relative;}
+ 
+.ppheader{height: 3%;min-height: 30px;}
+.ppfooter{height: 3%; min-height: 30px;position: relative;clear: both;}
+.pppanel{width: 100%; height:  93%; position: relative;}
+.ppview{width: 70%; overflow: auto; box-sizing: border-box;min-height: 100%; float: right;padding: 2px;}
+.ppcontrol{width: 30%; box-sizing: border-box;height: 100%; min-height:  100%; float: left;  position: relative;padding: 2px;}
+/*перепроверить это место\/*/
+.pjnew{width: 100%; overflow: auto; box-sizing: border-box;min-height: 100%; float: right;padding: 2px;}
+/*.pjnew{width: auto;position: relative;overflow: auto;float: outside;}*/
+/*position: absolute; bottom: 0px; top: 0px; left: 0px; right: 0px;*/
 
-.hover_on_white a:hover{text-decoration: none; color: #f00;}
+.pform{min-height: 100px; width: 100%;border-spacing:0; float: right;}
+.set_form {width: 100%; position: relative}
 
-body 
-{ 
-color: black;
-background-color: white;
-margin: 0;
-padding: 5px 5px 5px 5px;
-text-align: left;
-font: 62.5% Verdana, sans-serif;
-}
+.result_table{width: 100%;border-spacing:0; }
+.param_table{width: 100%; border-spacing: 2; font-size: 10px; }
+.but {width: 100px}
 
-table
-{
-width: 100%;
-border-collapse: collapse;
-font-size:8pt;
-}
+/*.center {top: 50%;left: 50%; width: 450px;height: 450px;position: relative;margin-top: -225px;margin-left: -225px;background: #EDEDED url(../images/temp/template-example-headline-bg.gif);border: 1px solid #CCC;color: #EAEAEA;font-size: 50px;text-align: center;}*/
+.center {position: relative;background: #EDEDED url(../images/temp/template-example-headline-bg.gif);border: 1px solid #CCC;color: #EAEAEA;font-size: 50px;text-align: center;}
 
-.page_indent p, ol
-{
-    text-align: justify;
-    text-indent: 1.5em;
-    font-size:10pt;
-}
+.pheader{height: 30;}
+.pfooter{height: 30;}
+.pcontrol{width: 30%;}
+.pview{width: 70%;}
+ 
+.nobr {display: inline-block;}
+.blind {display: none;}
 
-.page_indent_main p
-{
-    text-align: justify;
-    text-indent: 1.5em;
-    font-size:12;
-}
+.jcontrol{width: 20%;}
+.jview{width: 80%;}
+.ui-tooltip {max-width: 300px;}
+.logo {font-size: 22px; font-weight: bolder; margin-left: 30px;}
+.logo_labs_main {font-size: 22px; font-weight: bold; font-style: italic; margin-left: 5px;color: #619226;}
+.logo_labs {font-size: 22px; font-weight: bold; font-style: italic; margin-left: 5px;color: #2e6e9e;}
+.radiosel, .info, .parameters {font-size: 0.7em};
+.tabrow {white-space: nowrap;}
+.st_ok {font-weight: bolder; color: green;}
+.st_fail {font-weight: bolder; color: red;}
 
-.page_table_header
-{
-font-weight:bold;
-font-size:14pt;
-}
+/*from old_version*/
+.showcase {padding: 25px;}
+.table_tasks {font-size: 9pt;}
+
 .page_title
 {
-font-size:18pt;
+font-size:14pt;
 font-weight:800;
 color: #888;
 }
+.ui-button-text{font-size: 9pt;}
+.page_table_header {font-weight:bold;font-size:14pt;}
+.interlace {background-color: #F3E2A9;}
+.col_complexity {min-width: 50px;}
 
-.bottom_form
-{
-background-color: #CCC;
-}
+.page_note {font-size: 12pt;}
+.tr-head {font-size: 1.4em;width: 100%;}
 
-.interlace
-{
-background-color: #DDD;
-}
 
-.col_complexity
-{
-min-width: 50px;
-}
+/*.adminus {color: red}
+.newbieus {color: green}
+.expertus {color: orange}*/
 
-.showcase
-{
-font-size:8pt;
-padding: 25px; 
-border: 4px solid #888; 
-vertical-align: top;
-background-color: #FFF;
-}
+/*//for status
+.disabled_st {color: black}
+.pending_st {color: #00498f}
+.running_st {color: orange}
+.compl_st {color: green}
+.failed_st {color: red}*/
 
-/*.job-descr
-{
-	font-size: 10pt;
-	color: #755
-}*/
+#jobs_new_sel,#params,#params_form,#accordion,#my-datepicker,#ui-datepicker-div {font-size: 9pt;}
+
+

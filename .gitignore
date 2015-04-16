@@ -7,7 +7,8 @@
 nbproject/
 *.log
 bck/*
-skin/*
 css/__history/*
 css/jquery*
 js/jquery/jquery*/*
+tmp/*
+users/*

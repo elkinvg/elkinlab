@@ -1,12 +1,12 @@
 <?php
 //v3 started: 10-January-2013
 //v3 last changes: 21-October-2014
-$debug=true;
+$debug=false;
 
 
 if ($debug)
 {
-	$proj_home="http://elkinlab.local/";
+	$proj_home="http://elkinlab.local";
   $sweet_home=$proj_home;
 }
 else 
@@ -61,7 +61,7 @@ function my_getcookie($name){return $_COOKIE[$GLOBALS['cookie_prefix'].$name];}
 $debug_status = my_getcookie("debug");
 if (!isset($debug_status)) 
     {
-    $debug_status = 1;
+    $debug_status = 0;
     my_setcookie("debug", $debug_status, $exp_day);
     }
 

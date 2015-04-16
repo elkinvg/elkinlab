@@ -115,5 +115,11 @@ $reg_form = array(
     'button_ok_profile' => 'Сохранить',
     'button_cancel' => 'Передумал'
 );
+
+$jobs_table = array(
+    //'begin' => ''
+    'update'=>'Обновить',
+    'period'=>'Период: '
+);
 ?>
 
