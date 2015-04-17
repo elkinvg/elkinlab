@@ -14,18 +14,18 @@
 
 	<script type='text/javascript' src='../js/jobs_new.js'></script>
         <style type="text/css">
-            label, input { display:block; }
+/*            label, input { display:block; }*/
             select, input {padding: .4em; }
             select, input { width:95%;}
             fieldset { padding:0; border:0; margin-top:15px; }
-            h1 { font-size: 1.2em; margin: .6em 0; }
+/*            h1 { font-size: 1.2em; margin: .6em 0; }
             div#task-select, div#delete, div#params {margin: 15px 0; }
             .ui-button { 
                 outline: 0; margin:0; padding: .4em 1em .5em; 
                 text-decoration:none; cursor:pointer; position: relative; 
                 text-align: center; 
             }
-            .ui-dialog .ui-state-highlight, .ui-dialog .ui-state-error { padding: .3em;  }
+            .ui-dialog .ui-state-highlight, .ui-dialog .ui-state-error { padding: .3em;  }*/
         </style>
     </head>
     <body>

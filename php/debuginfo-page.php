@@ -11,7 +11,7 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-        require "../php/config.inc.php";
+        require "./common_page.inc.php";
         //global $context;
         echo "<p>";
         echo '$debug = '.$debug.'<br>';

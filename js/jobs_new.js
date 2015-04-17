@@ -61,7 +61,12 @@ $(document).ready(function () {
 			    bValid = false;
 			}
 		    });
-//				
+                    $('#params_form tbody :checkbox').each(function ()
+                    {
+                        var ch = $(this).prop("checked");
+                        if (!ch) $(this).val("0");
+                    });
+                    //				
 
 		    if ($('#params_form tbody :checkbox').length > 0 && $('#params_form tbody :checkbox:checked').length < 1)
 		    {

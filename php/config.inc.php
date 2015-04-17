@@ -1,9 +1,8 @@
 <?php
 //v3 started: 10-January-2013
 //v3 last changes: 21-October-2014
-$debug=false;
-
-
+global $debug,$debug_status;
+if (!isset($debug)) $debug=0;
 if ($debug)
 {
 	$proj_home="http://elkinlab.local";
@@ -57,15 +56,11 @@ function my_delcookie($name){return setcookie ($GLOBALS['cookie_prefix'].$name, 
 function my_getcookie($name){return $_COOKIE[$GLOBALS['cookie_prefix'].$name];} 
 //context:
 
-// ELKIN-DEBUG B
-$debug_status = my_getcookie("debug");
 if (!isset($debug_status)) 
     {
     $debug_status = 0;
     my_setcookie("debug", $debug_status, $exp_day);
     }
-
-// ELKIN-DEBUG E
 
 if (!$debug_status){
 $context['uuid']=my_getcookie("uuid"); if (!isset($context['uuid'])) $context['uuid']=0;
