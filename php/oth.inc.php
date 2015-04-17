@@ -1,6 +1,6 @@
 <?php
 global $pp;
-require $pp."tmp/debug.inc.php";
+include $pp."tmp/debug.inc.php";
 require $pp."php/config.inc.php";
 echo "<link href='".$pp."css/common.css' rel='stylesheet' type='text/css' />";
 require $pp."lang/$context[lang]/msg.inc.php";
