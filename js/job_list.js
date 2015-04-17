@@ -59,7 +59,7 @@ $(document).ready(function () {
 		changeMonth: true,
 		changeYear: true
 	    });
-	    params.finishTime = Math.round(today.getTime() / 1000);
+	    params.finishTime = Math.round((today.getTime() / 1000) + 3600);
 	    params.startTime = Math.round(timeago.getTime() / 1000);
 	    var from = timeago;
 	    var upto = today;
