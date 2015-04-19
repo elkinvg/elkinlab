@@ -184,8 +184,10 @@ heightDiv();
 			    if (type == 0 && name.indexOf("USE_STATION_") != -1)
 			    {
 				inputType = "checkbox";
-				inputValue = 1;
-				add = "checked";
+				inputValue = def_val;
+				if (def_val=="1") add = "checked";
+				else add="unchecked";
+//				else add 
 			    }
 			    else
 			    {
