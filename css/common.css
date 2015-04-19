@@ -2,13 +2,14 @@
  a {text-decoration: none; font-weight: bold;} 
  body {margin: 0;}
  html,boby, .pmain {width: auto; height: 100%; margin: 2px}
+ h4 {margin: 10}
 .pmain{position: relative;}
  
-.ppheader{height: 3%;min-height: 30px;}
-.ppfooter{height: 3%; min-height: 30px;position: relative;clear: both;}
-.pppanel{width: 100%; height:  93%; position: relative;}
+.ppheader{height: /*3%;min-height:*/ 28px;}
+.ppfooter{height: /*3%; min-height:*/ 28px;position: relative;clear: both;}
+.pppanel{width: 100%; /*height:  93%;*/ position: relative;}
 .ppview{width: 70%; overflow: auto; box-sizing: border-box;min-height: 100%; float: right;padding: 2px;}
-.ppcontrol{width: 30%; box-sizing: border-box;height: 100%; min-height:  100%; float: left;  position: relative;padding: 2px;}
+.ppcontrol{width: 30%; box-sizing: border-box; min-height:  100%; float: left;  position: relative;padding: 2px;overflow: auto;}
 /*перепроверить это место\/*/
 .pjnew{width: 100%; overflow: auto; box-sizing: border-box;min-height: 100%; float: right;padding: 2px;}
 /*.pjnew{width: auto;position: relative;overflow: auto;float: outside;}*/
@@ -16,10 +17,17 @@
 
 .pform{min-height: 100px; width: 100%;border-spacing:0; float: right;}
 .set_form {width: 100%; position: relative}
+.file_link {text-align: center; font-size: 11px;}
+.img_hist{text-align: center}
+.err_link {text-align: center; color: red}
 
 .result_table{width: 100%;border-spacing:0; }
 .param_table{width: 100%; border-spacing: 2; font-size: 10px; }
+.job_table{width: 100%; border-spacing: 2; font-size: 12px; }
 .but {width: 100px}
+.job_info {text-align: left; font-size: 12px;}
+.actions_jc {width: 100%; text-align: center;text-decoration:underline; font-size: 12px}
+
 
 /*.center {top: 50%;left: 50%; width: 450px;height: 450px;position: relative;margin-top: -225px;margin-left: -225px;background: #EDEDED url(../images/temp/template-example-headline-bg.gif);border: 1px solid #CCC;color: #EAEAEA;font-size: 50px;text-align: center;}*/
 .center {position: relative;background: #EDEDED url(../images/temp/template-example-headline-bg.gif);border: 1px solid #CCC;color: #EAEAEA;font-size: 50px;text-align: center;}

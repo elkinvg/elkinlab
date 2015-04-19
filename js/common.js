@@ -26,9 +26,36 @@ function borderDel()
 
 function heightDiv()
 {
-    var hight1 = $(".ppview").height();
-//			$(".pppanel").height(hight1);
-    $(".ppcontrol").height(hight1);
+//    var hight1 = $(".ppview").height();
+////			$(".pppanel").height(hight1);
+//    $(".ppcontrol").height(hight1);
+//
+//    var hight = 0;
+//    var hightv = $(".ppview").outerHeight();
+//    var hightc = $(".ppcontrol").outerHeight();
+//    if (hightc>hightv) {$(".ppview").outerHeight(hightc);}
+//    else {$(".ppcontrol").outerHeight(hightv);}
+//			$(".pppanel").outerHeight(hightv);
+var panH = $('.pmain').outerHeight() - $(".ppheader").outerHeight() - $(".ppfooter").outerHeight();
+$(".pppanel").outerHeight(panH);
+  		    $(".ppview").outerHeight($(".pppanel").outerHeight());
+$(".ppcontrol").outerHeight($(".pppanel").outerHeight());  
+}
+
+function addDateTimePicker (min_time) {
+    	    $(".my-datepicker").datetimepicker({
+		dateFormat: "yy-mm-dd",
+		changeMonth: true,
+		changeYear: true,
+		minDate: min_time,
+		maxDate: new Date(),
+//                                onSelect: function () {
+//                                    $(this).focus();
+//                                }, // for fix bug in IE
+//                                onClose: function () {
+//                                    (this).datepicker("hide");
+//                                }   // for fix bug in IE
+	    }); //fix bug - чередовать окошки ... иначе не закрывается in IE
 }
 
 var rexNumber = new RegExp("^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?$", "i");

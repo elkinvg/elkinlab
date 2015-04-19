@@ -38,3 +38,25 @@ function pFooter() {
     echo "<div class='ui-widget-header ui-corner-bottom ppfooter' align=right></div>";
     echo "</div>";
 }
+
+function StationsStatus($fname, $nStations)
+{
+  $astatus=array();
+  $f=  fopen($fname,"r");
+  if ($f)
+  {
+   while (!feof($f))
+   {
+     $s = fgets($f, 64);
+     list($station_id,$ping_ok,$daq_ok,$data_ok,$age,$ts)=explode(" ",$s,6); //ts =>  timestamp of the last data transmittion !!!!!
+     $id = substr($station_id,3,1);
+
+     $ts = mktime(substr($ts,8,2),substr($ts,10,2),0,substr($ts,4,2),substr($ts,6,2),substr($ts,0,4));
+     $ts=date("Y-m-d H:i",$ts);
+
+     $astatus[$id] = array("ping" => $ping_ok, "daq" => $daq_ok, "data" =>$data_ok, "age" => $age, "ts" => $ts);
+    }
+    fclose($f);
+	}
+  return $astatus;
+}

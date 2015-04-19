@@ -12,7 +12,9 @@
 	require "./common_page.inc.php";
 	?>
 
+	<script type='text/javascript' src='../js/job-add.js'></script>
 	<script type='text/javascript' src='../js/jobs_new.js'></script>
+	
         <style type="text/css">
 /*            label, input { display:block; }*/
             select, input {padding: .4em; }

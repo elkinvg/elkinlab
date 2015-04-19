@@ -119,7 +119,27 @@ $reg_form = array(
 $jobs_table = array(
     //'begin' => ''
     'update'=>'Update',
-    'period'=>'Period: '
+    'period'=>'Period: ',
+    'parameter'=>'parameter',
+    'value'=>'value',
+    'pars_jobs'=>'Parameters of job',
+    'links' => 'links for download',
+    'csv_link_pre' => 'Data ',
+    'csv_link_post' => ' for Excel (Histograms)',
+    'no_data'=>'no links',
+    'actions'=>'Actions',
+    'new_job'=>'Change parameters (new job)',
+    'back'=>'back job\'s list',
+    'job_info'=>'Job\'s information',
+    'started'=>'Started: ',
+    'finished'=>'Finished: ',
+    'user'=>'User: ',
+    'status'=>'Job\'s status',
+    'disabled'=>'Disabled',
+    'pending'=>'Pending',
+    'running'=>'Running',
+    'completed'=>'completed',
+    'failed'=>'Failed',
 );
 ?>
 

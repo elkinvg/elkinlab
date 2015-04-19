@@ -12,7 +12,8 @@ $(document).ready(function () {
     debugInfo();
     updateTable('first');
     $(window).resize(function () {
-	$(".ppcontrol").height($(".ppview").height());
+	//if($(".ppcontrol").height()>$(".ppview").height())$(".ppcontrol").height($(".ppview").height());
+	heightDiv();
     });
 
     $("#cost_b").click(function ()
