@@ -91,6 +91,7 @@ $(document).ready(function () {
 	    }
 	    $('#params_form tbody').html(tr);
 	    addDateTimePicker(min_time);
+	    checkAll();
 
 	}
 	, "json"); // post

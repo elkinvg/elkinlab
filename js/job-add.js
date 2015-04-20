@@ -38,6 +38,26 @@ function checkRegexpNew(o, regexp, n, t, otips)
     return false;
 }
 
+function checkAll()
+{
+    if ($('#params_form tbody tr :checkbox').length > 0)
+    {
+        var chkAll = "<tr><td> (un)check All </td><td> <input type='checkbox' chkall checked> </td></tr>";
+        $('#params_form tbody tr :checkbox:eq(0)').parent().parent().before(chkAll);
+        
+        $("#params_form tbody [chkall]").change(function ()
+        {
+            $("#params_form tbody [pname]:checkbox").each(function ()
+            {
+                $(this).prop("checked",$("#params_form tbody [chkall]").prop("checked"));
+            });
+        });
+    }
+           
+        //prepend("<tr><td> One </td><td> Two </td></tr>");
+
+}
+
 function dialog() {
     $("#params").dialog({
 	autoOpen: false,
@@ -72,11 +92,11 @@ function dialog() {
 			    bValid = false;
 			}
 		    });
-		    $('#params_form tbody :checkbox').each(function ()
+		    $('#params_form tbody [ptype]:checkbox').each(function ()
 		    {
 			var ch = $(this).prop("checked");
-			if (!ch)
-			    $(this).val("0");
+			if (!ch) $(this).val("0");
+			if (ch) $(this).val("1");
 		    });
 		    //				
 
@@ -111,7 +131,7 @@ function dialog() {
 		    if (bValid)
 		    {
 			var params = new Array();
-			var paramsTr = $('#params_form tbody :input');
+			var paramsTr = $('#params_form tbody :input').not('[chkall]');
 			var n = 0;
 			var tmpAr = new Object();
 			paramsTr.each(function ()

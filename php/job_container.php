@@ -186,7 +186,7 @@ heightDiv();
 				inputType = "checkbox";
 				inputValue = def_val;
 				if (def_val=="1") add = "checked";
-				else add="unchecked";
+				//else add="unchecked";
 //				else add 
 			    }
 			    else
@@ -204,6 +204,7 @@ heightDiv();
 		    }
 		    $('#params_form tbody').html(tr);
 		    addDateTimePicker(min_time);
+		    checkAll();
 		}
 
 
