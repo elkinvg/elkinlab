@@ -6,7 +6,8 @@
 .pmain{position: relative;}
  
 .ppheader{height: /*3%;min-height:*/ 28px;}
-.ppfooter{height: /*3%; min-height:*/ 28px;position: relative;clear: both;}
+.ppfooter{height: /*3%; min-height:*/ 28px;position: relative;clear: both;text-align: justify
+}
 .pppanel{width: 100%; /*height:  93%;*/ position: relative;}
 .ppview{width: 70%; overflow: auto; box-sizing: border-box;min-height: 100%; float: right;padding: 2px;}
 .ppcontrol{width: 30%; box-sizing: border-box; min-height:  100%; float: left;  position: relative;padding: 2px;overflow: auto;}

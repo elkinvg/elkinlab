@@ -15,9 +15,10 @@ else
 }
 if (!$debug) {$stations_status="/projects/livni/software/eas.cron.d/status.dat";}
 
+
 $users_home= $proj_home."/users";
 $users_path= "/projects/livni/users";
-$fname="params.txt";
+//$fname="params.txt";
 $date_from=mktime(0,0,0,5,7,2009);//the date of data accumulation start (must be the same as in common.js)
 $max_bins=10000;
 

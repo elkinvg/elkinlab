@@ -32,30 +32,43 @@ function pHeader($logo) {
 }
 
 function pFooter() {
-    global $dic;
+    global $dic,$stations_status;
     echo "</div >";
 //    echo "<tr><td class='ui-widget-content ui-corner-bottom pfooter' colspan=2 align=right><a href='#' class='tt_switch' status=1 title='$dic[help_off_title_tt]'>$dic[help_off_title]</a></td></tr>";
-    echo "<div class='ui-widget-header ui-corner-bottom ppfooter' align=right></div>";
+    $status = StationsStatus($stations_status);
+    sort($status);
+    echo "<div class='ui-widget-header ui-corner-bottom ppfooter'>";
+        echo "<table width='100%'>";
+    echo "<tr>";
+    foreach ($status as $st) {
+        if ($st['ping'] == $st['data'] && $st['ping'] == $st['daq'] && $st['ping']==0) echo "<td>$st[id] <span style='color: green; font-size:120%'>&#9679</span> <td>";
+        else echo "<td>$st[id] <span class='status_st' style='color: red; font-size:120%'>&#9679</span> <td>";
+    }
+    echo "</tr>";
+    echo "</table>";
+    echo "</div>";
     echo "</div>";
 }
 
-function StationsStatus($fname, $nStations)
+function StationsStatus($fname)
 {
   $astatus=array();
   $f=  fopen($fname,"r");
   if ($f)
   {
+      $station_id=$ping_ok=$daq_ok=$data_ok=$age=$ts=0;
    while (!feof($f))
    {
      $s = fgets($f, 64);
-     list($station_id,$ping_ok,$daq_ok,$data_ok,$age,$ts)=explode(" ",$s,6); //ts =>  timestamp of the last data transmittion !!!!!
-     $id = substr($station_id,3,1);
-
+     if ($s){
+     list($station_id,$ping_ok,$daq_ok,$data_ok,$age,$ts)=explode(" ",$s); //ts =>  timestamp of the last data transmittion !!!!!
+     //$id = substr($station_id,3,1);
+     $id = explode("LNP",$station_id);
      $ts = mktime(substr($ts,8,2),substr($ts,10,2),0,substr($ts,4,2),substr($ts,6,2),substr($ts,0,4));
      $ts=date("Y-m-d H:i",$ts);
 
-     $astatus[$id] = array("ping" => $ping_ok, "daq" => $daq_ok, "data" =>$data_ok, "age" => $age, "ts" => $ts);
-    }
+     $astatus[$id[1]] = array("id"=>$id[1],"ping" => $ping_ok, "daq" => $daq_ok, "data" =>$data_ok, "age" => $age, "ts" => $ts);
+   }}
     fclose($f);
 	}
   return $astatus;
