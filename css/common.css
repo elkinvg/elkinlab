@@ -1,7 +1,7 @@
 /* common.css */
  a {text-decoration: none; font-weight: bold;} 
  body {margin: 0;}
- html,boby, .pmain {width: auto; height: 100%; margin: 2px}
+ html,boby, .pmain {width: auto; height: 100%;margin-left: 2;margin-right: 2}
  h4 {margin: 10}
 .pmain{position: relative;}
  
