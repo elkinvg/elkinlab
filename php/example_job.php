@@ -51,11 +51,13 @@ function Rendermain() {
 }
 
 function postJob() {
-    global $dic,$jobs_table;
+    global $dic,$jobs_table,$cookie_prefix;
     $script = str_replace("example_job.php", "dbcon4job_list.php", $_SERVER['PHP_SELF']);
     $url = "http://" . $_SERVER['HTTP_HOST'] . $script;
+    $cookie = array('utype' => $_COOKIE[$cookie_prefix.'utype'],'uuid'=>$_COOKIE[$cookie_prefix.'uuid']);
     $params = array(
-	'oper' => 'example'
+	'oper' => 'example',
+	'cookie'=> $cookie
     );
 
     $result = file_get_contents($url, false, stream_context_create(array(
