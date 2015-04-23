@@ -42,19 +42,19 @@ function checkAll()
 {
     if ($('#params_form tbody tr :checkbox').length > 0)
     {
-        var chkAll = "<tr><td> (un)check All </td><td> <input type='checkbox' chkall checked> </td></tr>";
-        $('#params_form tbody tr :checkbox:eq(0)').parent().parent().before(chkAll);
-        
-        $("#params_form tbody [chkall]").change(function ()
-        {
-            $("#params_form tbody [pname]:checkbox").each(function ()
-            {
-                $(this).prop("checked",$("#params_form tbody [chkall]").prop("checked"));
-            });
-        });
+	var chkAll = "<tr><td> (un)check All </td><td> <input type='checkbox' chkall checked> </td></tr>";
+	$('#params_form tbody tr :checkbox:eq(0)').parent().parent().before(chkAll);
+
+	$("#params_form tbody [chkall]").change(function ()
+	{
+	    $("#params_form tbody [pname]:checkbox").each(function ()
+	    {
+		$(this).prop("checked", $("#params_form tbody [chkall]").prop("checked"));
+	    });
+	});
     }
-           
-        //prepend("<tr><td> One </td><td> Two </td></tr>");
+
+    //prepend("<tr><td> One </td><td> Two </td></tr>");
 
 }
 
@@ -95,8 +95,10 @@ function dialog() {
 		    $('#params_form tbody [ptype]:checkbox').each(function ()
 		    {
 			var ch = $(this).prop("checked");
-			if (!ch) $(this).val("0");
-			if (ch) $(this).val("1");
+			if (!ch)
+			    $(this).val("0");
+			if (ch)
+			    $(this).val("1");
 		    });
 		    //				
 
@@ -162,6 +164,12 @@ function dialog() {
 			    var error = data.error;
 			    if (!errno)
 			    {
+				var from = timeago;
+				var upto = new Date();
+				upto.setHours(23, 59);				
+				
+				my_setcookie("jobs_from", from.getTime().toString(), exp_day, "/");
+				my_setcookie("jobs_to", upto.getTime().toString(), exp_day, "/");
 				window.location = "../php/job_list.php";
 			    }
 			}, "json");

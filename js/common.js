@@ -9,8 +9,15 @@ var cookie_prefix = "livni_"; //see config.inc.php
 //var jobs_from = new Date(2010, 2 - 1, 4);//1st job
 //var meteo_from = new Date(2010, 9 - 1, 14);//the date of data accumulation start (month -> 0..11
 //var exp_min = new Date(today.getTime() + 1 * 60 * 1000);
-//var exp_day = new Date(today.getTime() + 24 * 60 * 60 * 1000);
+var today = new Date();
+var exp_day = new Date(today.getTime() + 24 * 60 * 60 * 1000);
 //var exp_year = new Date(today.getTime() + 365 * 24 * 60 * 60 * 1000);
+
+var timeago = new Date("2009-01-01");
+var jobs_from = my_getcookie("jobs_from");
+var jobs_to = my_getcookie("jobs_to");
+if (jobs_from === null) my_setcookie("jobs_from",timeago.getTime().toString(),exp_day,"/");
+if (jobs_to === null) my_setcookie("jobs_to",today.getTime().toString(),exp_day,"/");
 
 var isTranslate = false;
 
@@ -112,14 +119,14 @@ function Translate_par(use_station_fun, pcap_fun, aret_fun, params_fun)
 //    return cookieEnabled;
 //}
 //
-//function my_setcookie(sName, value, expires, path, domain, secure)
-//{
-//    document.cookie = cookie_prefix + sName + "=" + escape(value) +
-//	    ((expires) ? "; expires=" + expires.toGMTString() : "") +
-//	    ((path) ? "; path=" + path : "") +
-//	    ((domain) ? "; domain=" + domain : "") +
-//	    ((secure) ? "; secure=" + secure : "");
-//}
+function my_setcookie(sName, value, expires, path, domain, secure)
+{
+    document.cookie = cookie_prefix + sName + "=" + escape(value) +
+	    ((expires) ? "; expires=" + expires.toGMTString() : "") +
+	    ((path) ? "; path=" + path : "") +
+	    ((domain) ? "; domain=" + domain : "") +
+	    ((secure) ? "; secure=" + secure : "");
+}
 //
 //function my_delcookie(sName) {
 //    document.cookie = cookie_prefix + sName + "=undefined; expires=Fri, 31 Dec 1999 23:59:59 GMT;";

@@ -1,8 +1,6 @@
 $(document).ready(function () {
-    var today = new Date();
     var tmpDayAgo = 60;
 
-    var timeago = new Date("2009-01-01");
 
     //timeago.setMilliseconds(today.getMilliseconds() - tmpDayAgo * 24 * 3600 * 1000);
     var begin_height = $(".pppanel").outerHeight();
@@ -54,16 +52,30 @@ $(document).ready(function () {
 	var params = new Object();
 	if (operation == 'first')
 	{
+	    var from,upto;
+	    if (jobs_to===undefined && jobs_from===undefined)
+	    {
+		from = timeago;
+		upto = today;
+	    }
+	    else
+	    {
+		from = new Date();
+		from.setTime(jobs_from);
+		upto = new Date();
+		upto.setTime(jobs_to);
+	    }
+
 	    $(".my-datepicker").datepicker({
 		dateFormat: "yy-mm-dd",
-		maxDate: today,
+		maxDate: upto,
+		minDate: from,
 		changeMonth: true,
 		changeYear: true
 	    });
-	    params.finishTime = Math.round((today.getTime() / 1000) + 3600);
-	    params.startTime = Math.round(timeago.getTime() / 1000);
-	    var from = timeago;
-	    var upto = today;
+	    params.finishTime = Math.round((upto.getTime() / 1000) + 3600);
+	    params.startTime = Math.round(from.getTime() / 1000);
+
 	}
 	else if (operation == 'list')
 	{
@@ -71,6 +83,8 @@ $(document).ready(function () {
 	    var upto = new Date($("#data_end").val());
 	    from.setHours(0, 0);
 	    upto.setHours(23, 59);
+	    my_setcookie("jobs_from",from.getTime().toString(),exp_day,"/");
+	    my_setcookie("jobs_to",upto.getTime().toString(),exp_day,"/");
 //                        //$("#errordiv").append("from="+from.getTime()+"<br>");
 //                        //$("#errordiv").append("to="+upto.getTime()+"<br>");
 	    //.getTime()/1000

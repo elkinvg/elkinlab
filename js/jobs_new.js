@@ -95,7 +95,7 @@ $(document).ready(function () {
                         "' maxlength=80 size=84></td><td><input type='" + inputType + "' class='" + cssclass + "' maxlength=80 size=24 value='" + inputValue + "' " + vals + add + " ></td></tr>";
             }
             $('#params_form tbody').html(tr);
-            addDateTimePicker(min_time);
+            addDateTimePicker(min_time, max_time);
             checkAll();
 
         }
