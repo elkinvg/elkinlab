@@ -2,9 +2,9 @@ $(document).ready(function () {
     var today = new Date();
     var tmpDayAgo = 60;
 
-    var timeago = new Date();
+    var timeago = new Date("2009-01-01");
 
-    timeago.setMilliseconds(today.getMilliseconds() - tmpDayAgo * 24 * 3600 * 1000);
+    //timeago.setMilliseconds(today.getMilliseconds() - tmpDayAgo * 24 * 3600 * 1000);
     var begin_height = $(".pppanel").outerHeight();
 
     borderDel();
@@ -87,7 +87,7 @@ $(document).ready(function () {
 	}
 
 
-	$.post("../php/dbcon4job_list.php", {oper: operation, params: params},
+	$.post("../php/dbcon4job_list.php", {oper: operation, params: params, cookie_prefix: cookie_prefix},
 	function (data) {
 	    var tr = "";
 

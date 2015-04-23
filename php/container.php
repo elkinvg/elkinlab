@@ -12,9 +12,23 @@
 //	require "./oth.inc.php";
 	require "./common_page.inc.php";
 	$task_id = $_GET['task_id'];
-	$url = "../lang/" . $context['lang'] . "/task_descr/task" . $task_id . ".htm";
+	$file_desc = $_GET['file'];
+	if (isset($task_id)) {
+	    $url = "../lang/" . $context['lang'] . "/task_descr/task" . $task_id . ".htm";
+	}
+	if (isset($file_desc)) {
+	    $url = "../lang/" . $context['lang'] . "/" . $file_desc;
+	}
 	$contents = file_get_contents($url);
 	?>
+	<script type="text/javascript">
+	    $(function () {
+		heightDivJNew();
+		$(window).resize(function () {
+		    heightDivJNew();
+		});
+	    });
+	</script>
     </head>
     <body>
 	<?php Rendermain() ?>
@@ -22,9 +36,10 @@
 </html>
 
 <?php
+
 // пока не работают некоторые ссылки
 function Rendermain() {
-    global $dic, $contents,$task_id;
+    global $dic, $contents, $task_id;
 
     $head_txt = "<span class=logo_labs>: task $task_id</span>";
     pHeader($head_txt);

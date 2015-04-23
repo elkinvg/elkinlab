@@ -54,13 +54,14 @@ $exp_day = $now+86400;
 $exp_year = $now+31536000;
 function my_setcookie($name, $value, $expires){return setcookie($GLOBALS['cookie_prefix'].$name,$value,$expires,"/");}
 function my_delcookie($name){return setcookie ($GLOBALS['cookie_prefix'].$name, "undefined", $now - 3600,"/");}
+
 function my_getcookie($name){return $_COOKIE[$GLOBALS['cookie_prefix'].$name];} 
 //context:
 
 if (!isset($debug_status)) 
     {
     $debug_status = 0;
-    my_setcookie("debug", $debug_status, $exp_day);
+    //my_setcookie("debug", $debug_status, $exp_day);
     }
 
 if (!$debug_status){
@@ -74,9 +75,11 @@ $context['lang']=my_getcookie("lang"); if (!isset($context['lang'])) $context['l
 else {
     $uuid_deb = my_getcookie("uuid");
     if(!isset($uuid_deb)) {$uuid_deb = 120;my_setcookie("uuid", $uuid_deb, $exp_day);}
+    if (!isset($_COOKIE[$GLOBALS['cookie_prefix'].'utype'])) {my_setcookie("utype", "admin", $exp_day);}
+    
     $context['uuid']=120;
     $context['user']="Elkin";
-    $context['utype']="admin";
+    $context['utype']=  my_getcookie("utype");
     $context['visits']=100;
     $context['jobs']=100;
     $context['lang']="ru";

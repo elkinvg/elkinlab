@@ -14,7 +14,8 @@ mysqli_query( $link,"set names utf8");
 
 if ($oper=="listall")//begin------------------------------------------------------------------------LISTALL
 {
-  $user_type = my_getcookie("utype");
+  //$user_type = my_getcookie("utype");
+  $user_type = $context['utype'];
   if ($user_type=="admin" || $user_type=="expert")
     $query="SELECT * FROM tasks ORDER BY sequence ASC,popularity DESC";
   else  

@@ -58,7 +58,7 @@ function Control()
   echo "<td class='ui-widget-content ui-corner-left jview' id=newjob_brief_descr>$context[lang] brief description</td>";
   //example_job
   echo "<tr>";
-  echo "<td height=$page_height% class='ui-widget-content ui-corner-right jcontrol' align=center><a href='./php/tempdev.php'><span class='logo_labs' title='$dic[example_job_tt]'>$dic[example_job]</span></a></td>";
+  echo "<td height=$page_height% class='ui-widget-content ui-corner-right jcontrol' align=center><a href='./php/example_job.php'><span class='logo_labs' title='$dic[example_job_tt]'>$dic[example_job]</span></a></td>";
   echo "<td class='ui-widget-content ui-corner-left jview' id=examplejob_brief_descr>$context[lang] brief description</td>";
   //shared_job
   echo "<tr>";
@@ -66,29 +66,29 @@ function Control()
   echo "<td class='ui-widget-content ui-corner-left jview' id=sharedjob_brief_descr>$context[lang] brief description</td>";
   //ELKIN-E
 
-  if ($context['utype']=="admin") {
-      //BASIL
-//  //jobs
+//  if ($context['utype']=="admin") {
+//      //BASIL
+////  //jobs
+////  echo "<tr>";
+////  echo "<td height=25% class='ui-widget-content ui-corner-right jcontrol' align=center><a href='./jobs_list_v3.php'><span class='logo_labs' title='$dic[jobs_title_tt]'>$dic[jobs_title]</span></a></td>";
+////  echo "<td class='ui-widget-content ui-corner-left jview' id=jobs_brief_descr>$context[lang] brief description</td>";
+////  echo "</tr>";
+// //journal 
 //  echo "<tr>";
-//  echo "<td height=25% class='ui-widget-content ui-corner-right jcontrol' align=center><a href='./jobs_list_v3.php'><span class='logo_labs' title='$dic[jobs_title_tt]'>$dic[jobs_title]</span></a></td>";
-//  echo "<td class='ui-widget-content ui-corner-left jview' id=jobs_brief_descr>$context[lang] brief description</td>";
+//  echo "<td height=25% class='ui-widget-content ui-corner-right jcontrol' align=center><a href='./journal_list_v3.php'><span class='logo_labs' title='$dic[journal_title_tt]'>$dic[journal_title]</span></a></td>";
+//  echo "<td class='ui-widget-content ui-corner-left jview' id=journal_brief_descr>$context[lang] brief description</td>";
 //  echo "</tr>";
- //journal 
-  echo "<tr>";
-  echo "<td height=25% class='ui-widget-content ui-corner-right jcontrol' align=center><a href='./journal_list_v3.php'><span class='logo_labs' title='$dic[journal_title_tt]'>$dic[journal_title]</span></a></td>";
-  echo "<td class='ui-widget-content ui-corner-left jview' id=journal_brief_descr>$context[lang] brief description</td>";
-  echo "</tr>";
- //tasks
-  echo "<tr>";
-  echo "<td height=25% class='ui-widget-content ui-corner-right jcontrol' align=center><a href='./jobs_tasks_v3.php'><span class='logo_labs' title='$dic[tasks_title_tt]'>$dic[tasks_title]</span></a></td>";
-  echo "<td class='ui-widget-content ui-corner-left jview'  id=tasks_brief_descr>$context[lang] brief description</td>";
-  echo "</tr>";
- //statistics
-  echo "<tr>";
-  echo "<td height=25% class='ui-widget-content ui-corner-right jcontrol' align=center><a href='./statistics_v3.php'><span class='logo_labs' title='$dic[statistics_title_tt]'>$dic[statistics_title]</span></a></td>";
-  echo "<td class='ui-widget-content ui-corner-left jview'  id=statistics_brief_descr>$context[lang] brief description</td>";
-  echo "</tr>";
-  }  
+// //tasks
+//  echo "<tr>";
+//  echo "<td height=25% class='ui-widget-content ui-corner-right jcontrol' align=center><a href='./jobs_tasks_v3.php'><span class='logo_labs' title='$dic[tasks_title_tt]'>$dic[tasks_title]</span></a></td>";
+//  echo "<td class='ui-widget-content ui-corner-left jview'  id=tasks_brief_descr>$context[lang] brief description</td>";
+//  echo "</tr>";
+// //statistics
+//  echo "<tr>";
+//  echo "<td height=25% class='ui-widget-content ui-corner-right jcontrol' align=center><a href='./statistics_v3.php'><span class='logo_labs' title='$dic[statistics_title_tt]'>$dic[statistics_title]</span></a></td>";
+//  echo "<td class='ui-widget-content ui-corner-left jview'  id=statistics_brief_descr>$context[lang] brief description</td>";
+//  echo "</tr>";
+//  }  
 }
 
 function Rendermain()

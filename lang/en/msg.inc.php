@@ -140,6 +140,8 @@ $jobs_table = array(
     'running'=>'Running',
     'completed'=>'completed',
     'failed'=>'Failed',
+    'gotojob' => 'go to the Job\'s page ',
+    'add_descr'=>'add/change description',
 );
 ?>
 

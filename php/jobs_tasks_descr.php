@@ -9,28 +9,33 @@
         <meta http-equiv="cache-control" content="no-cache"/>
 
         <?php
-	require "./common_page.inc.php";
-	require "../lang/$context[lang]/tasks_descr.inc.php";
+        require "./common_page.inc.php";
+        require "../lang/$context[lang]/tasks_descr.inc.php";
         ?>
 
         <script type="text/javascript">
             $(function () {
-                $("#accordion").accordion({header: "h3", heightStyle: "content", collapsible: true})
+                heightDivJNew();
+                $(window).resize(function () {
+                    heightDivJNew();
+                });
+                $("#accordion").accordion({header: "h3", heightStyle: "content", collapsible: true});
             });
         </script>
     </head>
     <body vlink=black link=black>
-    <?php
-    Rendermain();
-    ?>
+        <?php
+        Rendermain();
+        ?>
     </body>
 </html>
 
 <?php
+
 function Rendermain() {
     global $dic;
 //    echo "<table class='ui-widget main' width=100% height=100% border=0>";
-    $head_txt = "<span class=logo_labs>: $dic[task_list]</span>";    
+    $head_txt = "<span class=logo_labs>: $dic[task_list]</span>";
     pHeader($head_txt);
     echo "<div class='ui-widget-content pjnew showcase' align=center valign=top >";
     View();
@@ -39,20 +44,19 @@ function Rendermain() {
 }
 
 function View() {
-    global $tasks_descr,$tasks_descr_txt,$task_id;
+    global $tasks_descr, $tasks_descr_txt, $task_id;
     echo "
                     <table width=100% height=100% cellpadding=25px class='page_indent hover_on_white'>
                         <tr><td class=page_note>$tasks_descr_txt[note]</td></tr>
                         <tr height=100%><td height=100%>
                                 <div id='accordion'>
                                     <div>";
-                                        foreach ($tasks_descr as $task_id => $value)
-                                            echo "<h3><a href='#'>$value[caption]</a></h3><div>$value[descr]</div>";
-                                        
-                                    echo "</div>
+    foreach ($tasks_descr as $task_id => $value)
+        echo "<h3><a href='#'>$value[caption]</a></h3><div>$value[descr]</div>";
+
+    echo "</div>
                                 </div>
                             </td></tr>
                     </table>";
-
 }
 ?>
