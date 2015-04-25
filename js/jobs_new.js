@@ -92,7 +92,7 @@ $(document).ready(function () {
                 var vals = " min_val='" + min_val + "' max_val='" + max_val + "' ptype='" + type + "' " + " pname='" + name + "' ";
                 tr += "<tr><td><input type=text readonly class='ui-widget-content ui-corner-all' value='"
                         + caption +
-                        "' maxlength=80 size=84></td><td><input type='" + inputType + "' class='" + cssclass + "' maxlength=80 size=24 value='" + inputValue + "' " + vals + add + " ></td></tr>";
+                        "' maxlength=80 size=84></td><td><input type='" + inputType + "' class='" + cssclass + "' maxlength=32 size=24 value='" + inputValue + "' " + vals + add + " ></td></tr>";
             }
             $('#params_form tbody').html(tr);
             addDateTimePicker(min_time, max_time);

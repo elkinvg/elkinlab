@@ -18,7 +18,7 @@
 
 .pform{min-height: 100px; width: 100%;border-spacing:0; float: right;}
 .set_form {width: 100%; position: relative}
-.file_link {text-align: center; font-size: 11px;}
+.file_link, .notel {text-align: center; font-size: 11px;}
 .img_hist, .p_descr {text-align: center}
 .err_link {text-align: center; color: red}
 
@@ -27,7 +27,7 @@
 .result_table{width: 100%;border-spacing:0; }
 .param_table{width: 100%; border-spacing: 2; font-size: 10px; }
 .job_table{width: 100%; border-spacing: 2; font-size: 12px; }
-.but {width: 100px}
+.but {width: 100px; margin-left: 5; margin-right: 5; font-size: 100% }
 .job_info {text-align: left; font-size: 12px;}
 .actions_jc {width: 100%; text-align: center;text-decoration:underline; font-size: 12px}
 
@@ -70,7 +70,7 @@ color: #888;
 .interlace {background-color: #F3E2A9;}
 .col_complexity {min-width: 50px;}
 
-.page_note {font-size: 12pt;}
+.page_note {font-size: 12pt;text-align: justify}
 .tr-head {font-size: 1.4em;width: 100%;}
 
 

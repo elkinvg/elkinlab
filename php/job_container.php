@@ -1,3 +1,39 @@
+<?php
+require './common_page.inc.php';
+global $dic;
+$jobnum = null;
+$user_id = null;
+if (!empty($_GET['job_id'])) {
+    $jobnum = $_GET['job_id'];
+    $jobnum_head = $jobnum;
+} else {
+    $jobnum_head = $dic['job_container_nf'];
+}
+if (!empty($_GET['user_id']))
+    $user_id = $_GET['user_id'];
+
+$job_path = $_SERVER['DOCUMENT_ROOT'] . "/users/" . $user_id . "/jobs/" . $jobnum . "/";
+$web_job_path = $_SERVER['SERVER_NAME'] . "/users/" . $user_id . "/jobs/" . $jobnum . "/";
+
+$csv_files = array();
+$png_files = array();
+$txt_files = array();
+
+//    if (!count($txt_files)) echo "SIZE=".count($txt_files)."<br>";
+
+if (file_exists($job_path)) {
+    $files = scandir($job_path);
+    foreach ($files as $file) {
+	if (pathinfo($file, PATHINFO_EXTENSION) == "csv")
+	    $csv_files[] = $file;
+	if (pathinfo($file, PATHINFO_EXTENSION) == "png")
+	    $png_files[] = $file;
+	if (pathinfo($file, PATHINFO_EXTENSION) == "txt")
+	    $txt_files[] = $file;
+    }
+} else
+    $files = null;
+?>
 <html>
     <head>
         <meta http-equiv="content-type" content="text/html"/>
@@ -8,40 +44,8 @@
         <meta http-equiv="pragma" content="no-cache"/>
         <meta http-equiv="cache-control" content="no-cache"/>
 	<?php
+	$nprhead = true;
 	require "./common_page.inc.php";
-	global $dic;
-	$jobnum = null;
-	$user_id = null;
-	if (!empty($_GET['job_id'])) {
-	    $jobnum = $_GET['job_id'];
-	    $jobnum_head = $jobnum;
-	} else {
-	    $jobnum_head = $dic['job_container_nf'];
-	}
-	if (!empty($_GET['user_id']))
-	    $user_id = $_GET['user_id'];
-
-	$job_path = $_SERVER['DOCUMENT_ROOT'] . "/users/" . $user_id . "/jobs/" . $jobnum . "/";
-	$web_job_path = $_SERVER['SERVER_NAME'] . "/users/" . $user_id . "/jobs/" . $jobnum . "/";
-
-	$csv_files = array();
-	$png_files = array();
-	$txt_files = array();
-
-//    if (!count($txt_files)) echo "SIZE=".count($txt_files)."<br>";
-
-	if (file_exists($job_path)) {
-	    $files = scandir($job_path);
-	    foreach ($files as $file) {
-		if (pathinfo($file, PATHINFO_EXTENSION) == "csv")
-		    $csv_files[] = $file;
-		if (pathinfo($file, PATHINFO_EXTENSION) == "png")
-		    $png_files[] = $file;
-		if (pathinfo($file, PATHINFO_EXTENSION) == "txt")
-		    $txt_files[] = $file;
-	    }
-	} else
-	    $files = null;
 	?>
         <style type="text/css">
             /*            label, input { display:block; }*/
@@ -82,42 +86,39 @@
 		getParams();
 //        borderDel();
 
-		$.post("../php/job_comment.php", {uid: user_id, jid: job_id, oper: "read"}, function (data) {		    
-		    var descrs = $("<p>" , {html : data}).find("p");
-		    descrs.each( function () {
-			var id =$(this).attr('pid');
+		$.post("../php/job_comment.php", {uid: user_id, jid: job_id, oper: "read"}, function (data) {
+		    var descrs = $("<p>", {html: data}).find("p");
+		    descrs.each(function () {
+			var id = $(this).attr('pid');
 			$('#div_' + id).append($(this));
 		    });
 		}, "text");
 
 
-		$('.job-add').click(function ()
-		{
-		    $('#params').dialog("open");
-		    $('#params').dialog('option', 'title', "task_name");
-		});
-		$('.hov').hover(function () {
-		    $(this).addClass("ui-state-hover");
-		}, function () {
-		    $(this).removeClass("ui-state-hover");
-		}); // job-add.click()
+
 
 		//class='us_descr'  id='ud$ii'
-                $('.desc-add').click( function ()
-                {
-                    if ($('.p_descr').attr('hidden') !== undefined) {$('.p_descr').removeAttr('hidden') ;}
-                    else {$('.p_descr').attr('hidden','');}
-                    //if ($('.p_descr').has('[name=hidden]') === undefined) $('.p_descr').set('hidden');
-                });
-                
+		$('.desc-add').click(function ()
+		{
+		    if ($('.p_descr').attr('hidden') !== undefined) {
+			$('.p_descr').removeAttr('hidden');
+		    }
+		    else {
+			$('.p_descr').attr('hidden', '');
+		    }
+		    //if ($('.p_descr').has('[name=hidden]') === undefined) $('.p_descr').set('hidden');
+		});
+
 		$('.us_descr').click(function ()
 		{
 		    $(this).after(form);
 		    var aid = $(this).attr('id');
 		    var desc_in_p = $('[pid=' + aid + ']');
 		    //if (desc_in_p.length>0) var ftext = $('[pid=' + aid + ']')[0].innerText;
-		    if (desc_in_p.length>0) var ftext = $('[pid=' + aid + ']').html();
-                    if(ftext !== undefined) $('#com_text').val(ftext);
+		    if (desc_in_p.length > 0)
+			var ftext = $('[pid=' + aid + ']').html();
+		    if (ftext !== undefined)
+			$('#com_text').val(ftext);
 		    $('#ok_com').click(function ()
 		    {
 			var div_id = 'div_' + aid;
@@ -127,8 +128,9 @@
 			text = text.replace(pattern, "<br>");
 			var descr_div = '<p pid="' + aid + '">' + text + '</p>';
 			//descr_a.after(descr_div);
-			$("#"+div_id).html(descr_div);
-			$.post("../php/job_comment.php", {uid: user_id, jid: job_id, aid: div_id, text: descr_div, oper: "write"}, function (data) {}, "text");
+			$("#" + div_id).html(descr_div);
+			$.post("../php/job_comment.php", {uid: user_id, jid: job_id, aid: div_id, text: descr_div, oper: "write"}, function (data) {
+			}, "text");
 		    });
 
 		    $('#canc_com').click(function ()
@@ -156,14 +158,15 @@
 			    }
 			    addInfo(data);
 			    parametersTable(data.pars);
-                            
-                            var usrjobinfo = data.usrjobinfo;
-                            var option = usrjobinfo['option'];
-                            var uuid = my_getcookie("uuid");
-                            var owner = usrjobinfo['user_id'];
-                            if (option==='1' || uuid!==owner ) $('.desc-add').remove();
-                            
-                            
+
+			    var usrjobinfo = data.usrjobinfo;
+			    var option = usrjobinfo['option'];
+			    var uuid = my_getcookie("uuid");
+			    var owner = usrjobinfo['user_id'];
+			    if (option === '1' || uuid !== owner)
+				$('.desc-add').remove();
+
+
 			}
 			else
 			    tr = data.error;
@@ -191,6 +194,16 @@
 				$('#sts').after(jstatus);
 			    }
 			}
+			$('.job-add').click(function ()
+			{
+			    $('#params').dialog("open");
+			    $('#params').dialog('option', 'title', data.task_cap);
+			});
+			$('.hov').hover(function () {
+			    $(this).addClass("ui-state-hover");
+			}, function () {
+			    $(this).removeClass("ui-state-hover");
+			}); // job-add.click()
 			heightDiv();
 		    }, "json"); // post getparams
 		}
@@ -246,7 +259,7 @@
 			var vals = " min_val='" + min_val + "' max_val='" + max_val + "' ptype='" + type + "' " + " pname='" + name + "' ";
 			tr += "<tr><td><input type=text readonly class='ui-widget-content ui-corner-all' value='"
 				+ caption +
-				"' maxlength=80 size=84></td><td><input type='" + inputType + "' class='" + cssclass + "' maxlength=80 size=24 value='" + inputValue + "' " + vals + add + " ></td></tr>";
+				"' maxlength=80 size=84></td><td><input type='" + inputType + "' class='" + cssclass + "' maxlength=32 size=24 value='" + inputValue + "' " + vals + add + " ></td></tr>";
 		    }
 		    $('#params_form tbody').html(tr);
 		    addDateTimePicker(min_time, max_time);
@@ -304,7 +317,7 @@
                 </fieldset>
             </form>
         </div>
-	<?php Rendermain(); ?>
+<?php Rendermain(); ?>
     </body>
 </html>
 
@@ -313,7 +326,7 @@
 function Rendermain() {
     global $dic, $jobnum_head;
 
-    $head_txt = "<span class=logo_labs>: " . $dic['job_container'] . $jobnum_head . "</span>";
+    $head_txt = "<span class=logo_labs>: <a style='color: orange' href='./job_list.php'> список </a> :" . $dic['job_container'] . $jobnum_head . "</span>";
     pHeader($head_txt);
     Control();
     View();
@@ -329,10 +342,13 @@ function Control() {
 //    echo "<fieldset>";
 //    echo "<input type='text' id='data_beg' class='my-datepicker' readonly value=''>";
 //    echo "<input type='text' id='data_end' class='my-datepicker' readonly value=''>";
-//    echo "<input type='button' name='cost_b' id='cost_b' class='but' value='Обновить'>";
+//    echo "<input type='button' name='updt_lst' id='updt_lst' class='but' value='Обновить'>";
 //    echo "</fieldset>";
 //    echo "</form>";
 //    echo "</div>";
+    echo "<hr>";
+    echo "<h4> $jobs_table[note] </h4>";
+    echo "<p class='notel'>$jobs_table[note_l]</p>";
     echo "<hr>";
     echo "<h4>$jobs_table[job_info]</h4>";
     echo "<div class='job_info' dis='$jobs_table[disabled]' pen='$jobs_table[pending]' "
@@ -367,7 +383,9 @@ function Control() {
     echo "<tr>";
     echo "<td class='job-add hov'><a href='#'>$jobs_table[new_job]</a></td>";
     echo "</tr>";
+    echo "<tr>";
     echo "<td class='hov'><a href='./job_list.php'>$jobs_table[back]</a></td>";
+    echo "</tr>";
     echo "<tr>";
     echo "<td class='desc-add hov'><a href='#'>$jobs_table[add_descr]</a></td>";
     echo "</tr>";

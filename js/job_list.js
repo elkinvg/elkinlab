@@ -14,8 +14,21 @@ $(document).ready(function () {
 	heightDiv();
     });
 
-    $("#cost_b").click(function ()
+    $("#updt_lst").click(function ()
     {
+	updateTable('list');
+    });
+
+    $("#updt_lst2").click(function ()
+    {
+	var from = timeago;
+	var upto = new Date();
+	upto.setHours(23, 59);
+
+	my_setcookie("jobs_from", from.getTime().toString(), exp_day, "/");
+	my_setcookie("jobs_to", upto.getTime().toString(), exp_day, "/");
+	$("#data_beg").val(from.toString());
+	$("#data_end").val(upto.toString());
 	updateTable('list');
     });
 
@@ -52,8 +65,8 @@ $(document).ready(function () {
 	var params = new Object();
 	if (operation == 'first')
 	{
-	    var from,upto;
-	    if (jobs_to===undefined && jobs_from===undefined)
+	    var from, upto;
+	    if (jobs_to === undefined && jobs_from === undefined)
 	    {
 		from = timeago;
 		upto = today;
@@ -68,8 +81,8 @@ $(document).ready(function () {
 
 	    $(".my-datepicker").datepicker({
 		dateFormat: "yy-mm-dd",
-		maxDate: upto,
-		minDate: from,
+		maxDate: today,
+		minDate: timeago,
 		changeMonth: true,
 		changeYear: true
 	    });
@@ -83,8 +96,8 @@ $(document).ready(function () {
 	    var upto = new Date($("#data_end").val());
 	    from.setHours(0, 0);
 	    upto.setHours(23, 59);
-	    my_setcookie("jobs_from",from.getTime().toString(),exp_day,"/");
-	    my_setcookie("jobs_to",upto.getTime().toString(),exp_day,"/");
+	    my_setcookie("jobs_from", from.getTime().toString(), exp_day, "/");
+	    my_setcookie("jobs_to", upto.getTime().toString(), exp_day, "/");
 //                        //$("#errordiv").append("from="+from.getTime()+"<br>");
 //                        //$("#errordiv").append("to="+upto.getTime()+"<br>");
 	    //.getTime()/1000
@@ -137,7 +150,7 @@ $(document).ready(function () {
 		pattrs += "utype=" + data.val[n].utype + " ";
 		pattrs += "job_status=" + data.val[n].job_status + " ";
 		//pattrs =
-		tr += "<tr class='job_choose' style='cursor: pointer'" + pattrs + ">";
+		tr += "<tr class='job_choose' style='cursor: pointer' " + pattrs + ">";
 		tr += addTd(data.val[n].job_id, job_status, job_time, data.val[n].def_val, data.val[n].caption, utype, data.val[n].first_name + " " + data.val[n].last_name);
 		tr += "</tr>";
 
@@ -177,14 +190,5 @@ $(document).ready(function () {
 	    window.location.href = "../php/job_container.php?" + $.param(par_get);
 	});
     }
-
-    function addTd()
-    {
-	var td = "";
-	for (var n = 0; n < arguments.length; n++)
-	    td = td + "<td>" + arguments[n] + "</td>";
-	return td;
-    }
-
 });
 

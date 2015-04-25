@@ -78,7 +78,8 @@ if ($oper == "first") {
     $ret = array('err_no' => $err_no, 'result' => $result, 'val' => $out);
     $jsen = json_encode($ret);
     echo $jsen;
-} elseif ($oper == "list") {
+} 
+elseif ($oper == "list") {
     if (empty($ouuid) || empty($utype)) {
 	$out = array('err_no' => '-1', 'result' => 'No cookies for uuid or utype');
 	$jsen = json_encode($out);
@@ -115,7 +116,8 @@ if ($oper == "first") {
     $ret = array('err_no' => $err_no, 'result' => $result, 'val' => $out);
     $jsen = json_encode($ret);
     echo $jsen;
-} elseif ($oper == "example") {
+} 
+elseif ($oper == "example") {
     $cookie = $_POST['cookie'];
     if (empty($cookie)) {
 	$out = array('err_no' => '-1', 'result' => 'No cookies for uuid or utype');
@@ -139,5 +141,25 @@ if ($oper == "first") {
     $jsen = json_encode($ret);
     echo $jsen;
 //    echo 10;
+}
+elseif ($oper == "shared") {
+    $query = "SELECT jobs.*, users.first_name, users.last_name, tasks.caption, jobpars.def_val FROM jobs, users, tasks, jobpars WHERE `option` =2 AND `job_status` <10 AND jobs.job_id=jobpars.job_id AND jobpars.name='COMMENT' AND jobs.task_id=jobpars.task_id AND jobs.task_id=tasks.task_id AND users.uuid=jobs.user_id";
+    $res = mysqli_query($link, $query);
+    //$out = array();
+    if (!$res) {
+	$err_no = mysqli_errno($link);
+	$result = mysqli_error($link);
+	$out = array('err_no' => $err_no, 'result' => $result);
+    }
+    else {
+	while ($ret = mysqli_fetch_array($res, MYSQLI_ASSOC)) {
+	    $out[] = $ret;
+	};
+    }
+    mysqli_free_result($res);
+    mysqli_close($link);
+    $ret = array('err_no' => $err_no, 'result' => $result, 'val' => $out);
+    $jsen = json_encode($ret);
+    echo $jsen;
 }
 

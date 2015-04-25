@@ -1,3 +1,7 @@
+<?php
+require './common_page.inc.php';
+?>
+
 <html>
     <head>
         <meta http-equiv="content-type" content="text/html"/>
@@ -9,6 +13,7 @@
         <meta http-equiv="cache-control" content="no-cache"/>
 
         <?php
+	$nprhead=true;
         require "./common_page.inc.php";
         require "../lang/$context[lang]/tasks_descr.inc.php";
         ?>

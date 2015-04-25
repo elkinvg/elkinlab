@@ -62,7 +62,7 @@ function Control()
   echo "<td class='ui-widget-content ui-corner-left jview' id=examplejob_brief_descr>$context[lang] brief description</td>";
   //shared_job
   echo "<tr>";
-  echo "<td height=$page_height% class='ui-widget-content ui-corner-right jcontrol' align=center><a href='./php/tempdev.php'><span class='logo_labs' title='$dic[shared_job_tt]'>$dic[shared_job]</span></a></td>";
+  echo "<td height=$page_height% class='ui-widget-content ui-corner-right jcontrol' align=center><a href='./php/shared_job.php'><span class='logo_labs' title='$dic[shared_job_tt]'>$dic[shared_job]</span></a></td>";
   echo "<td class='ui-widget-content ui-corner-left jview' id=sharedjob_brief_descr>$context[lang] brief description</td>";
   //ELKIN-E
 

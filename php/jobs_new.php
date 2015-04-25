@@ -1,3 +1,6 @@
+<?php
+require './common_page.inc.php';
+?>
 <html>
     <head>
         <meta http-equiv="content-type" content="text/html"/>
@@ -9,6 +12,7 @@
         <meta http-equiv="cache-control" content="no-cache"/>
 
 	<?php
+	$nprhead=true;
 	require "./common_page.inc.php";
 	?>
 
@@ -118,7 +122,7 @@ function View() {
 	$pars = $value['par_number'];
 
 //	$descr_link = "" . $proj_home . "/php/container.php?url=lang/" . $context['lang'] . "/task_descr/task" . $task_id . ".htm";
-	$descr_link = "./container.php?task_id=" . $task_id;
+	$descr_link = "./container.php?task_id=" . $task_id."&task_name=$value[caption]";
 	//$descr_link="http://livni.jinr.ru/php/container.php?url=lang/$context[lang]/task_descr/task$task_id.htm";
 	$complexity = $value['complexity'];
 	if ($complexity > 2)
@@ -154,7 +158,7 @@ function View() {
 	//ELKIN-E
     }
 
-
+    echo " </tbody>\n";
     echo "</table>\n";
     //echo "</div>\n";
 }

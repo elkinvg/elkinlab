@@ -1,3 +1,8 @@
+<?php
+$indexdir = true;
+require './php/common_page.inc.php';
+?>
+
 <html><head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="keywords" content="free open interactive project for cosmic showers particles detectors detecting labs"/>
@@ -20,8 +25,9 @@
 <!--<script type='text/javascript' src='js/main.js'></script>-->
 <?php
 //require './php/js.inc.php';
-$indexdir = true;
+$nprhead=true;
 require './php/common_page.inc.php';
+
 echo "<script type='text/javascript' src='js/main.js'></script>";
 //require "php/config.inc.php";
 //require "lang/$context[lang]/dic.inc.php";

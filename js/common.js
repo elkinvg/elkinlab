@@ -16,8 +16,10 @@ var exp_day = new Date(today.getTime() + 24 * 60 * 60 * 1000);
 var timeago = new Date("2009-01-01");
 var jobs_from = my_getcookie("jobs_from");
 var jobs_to = my_getcookie("jobs_to");
-if (jobs_from === null) my_setcookie("jobs_from",timeago.getTime().toString(),exp_day,"/");
-if (jobs_to === null) my_setcookie("jobs_to",today.getTime().toString(),exp_day,"/");
+if (jobs_from === null)
+    my_setcookie("jobs_from", timeago.getTime().toString(), exp_day, "/");
+if (jobs_to === null)
+    my_setcookie("jobs_to", today.getTime().toString(), exp_day, "/");
 
 var isTranslate = false;
 
@@ -43,33 +45,41 @@ function heightDiv()
 //    if (hightc>hightv) {$(".ppview").outerHeight(hightc);}
 //    else {$(".ppcontrol").outerHeight(hightv);}
 //			$(".pppanel").outerHeight(hightv);
-var panH = $('.pmain').outerHeight() - $(".ppheader").outerHeight() - $(".ppfooter").outerHeight();
-$(".pppanel").outerHeight(panH);
-  		    $(".ppview").outerHeight($(".pppanel").outerHeight());
-$(".ppcontrol").outerHeight($(".pppanel").outerHeight());  
+    var panH = $('.pmain').outerHeight() - $(".ppheader").outerHeight() - $(".ppfooter").outerHeight();
+    $(".pppanel").outerHeight(panH);
+    $(".ppview").outerHeight($(".pppanel").outerHeight());
+    $(".ppcontrol").outerHeight($(".pppanel").outerHeight());
 }
 
 function heightDivJNew()
 {
     var panH = $('.pmain').outerHeight() - $(".ppheader").outerHeight() - $(".ppfooter").outerHeight();
     $(".pppanel").outerHeight(panH);
-    $('.pjnew').outerHeight($(".pppanel").outerHeight()); 
+    $('.pjnew').outerHeight($(".pppanel").outerHeight());
 }
 
-function addDateTimePicker (min_time, max_time) {
-    	    $(".my-datepicker").datetimepicker({
-		dateFormat: "yy-mm-dd",
-		changeMonth: true,
-		changeYear: true,
-		minDate: min_time,
-		maxDate: max_time,
+function addTd()
+{
+    var td = "";
+    for (var n = 0; n < arguments.length; n++)
+	td = td + "<td>" + arguments[n] + "</td>";
+    return td;
+}
+
+function addDateTimePicker(min_time, max_time) {
+    $(".my-datepicker").datetimepicker({
+	dateFormat: "yy-mm-dd",
+	changeMonth: true,
+	changeYear: true,
+	minDate: min_time,
+	maxDate: max_time,
 //                                onSelect: function () {
 //                                    $(this).focus();
 //                                }, // for fix bug in IE
 //                                onClose: function () {
 //                                    (this).datepicker("hide");
 //                                }   // for fix bug in IE
-	    }); //fix bug - чередовать окошки ... иначе не закрывается in IE
+    }); //fix bug - чередовать окошки ... иначе не закрывается in IE
 }
 
 var rexNumber = new RegExp("^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?$", "i");
