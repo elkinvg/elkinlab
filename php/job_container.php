@@ -108,6 +108,16 @@ if (file_exists($job_path)) {
 		    }
 		    //if ($('.p_descr').has('[name=hidden]') === undefined) $('.p_descr').set('hidden');
 		});
+		
+		$('.std-txt').click(function ()
+		{
+		    if ($('#std_txt').attr('hidden') !== undefined) {
+			$('#std_txt').removeAttr('hidden');
+		    }
+		    else {
+			$('#std_txt').attr('hidden', '');
+		    }
+		});
 
 		$('.us_descr').click(function ()
 		{
@@ -389,6 +399,9 @@ function Control() {
     echo "<tr>";
     echo "<td class='desc-add hov'><a href='#'>$jobs_table[add_descr]</a></td>";
     echo "</tr>";
+    echo "<tr>";
+    echo "<td class='std-txt hov'><a href='#'>$jobs_table[stdouttxt]</a></td>";
+    echo "</tr>";
     echo "</tbody>";
     echo "</table>";
     echo "</div>";
@@ -407,6 +420,21 @@ function View() {
 	$fgc = file_get_contents($job_path . "stderr.txt");
 	echo "<p class='err_link'>$fgc</p>";
     }
+    if (count($txt_files)) {
+//	$fgo = file_get_contents($job_path . "stdout.txt");
+	$f=  fopen($job_path . "stdout.txt"."","r");
+	if ($f)
+	{
+	    $fgo = "";
+	    while (!feof($f)) {
+		$s = fgets($f, 128);
+		$fgo .= $s. "<br>";
+	    }
+	    fclose($f);
+	}   else
+	fclose($f);	
+    }
+
 
 
 
@@ -446,6 +474,7 @@ function View() {
 	echo "<p class='img_hist'><img src='$png' ></p>";
 	$ii++;
     }
+    echo "<div id='std_txt' align=center hidden>$fgo</div>";
 //    print_r($_REQUEST);
 
 

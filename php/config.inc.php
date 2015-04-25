@@ -3,16 +3,17 @@
 //v3 last changes: 21-October-2014
 global $debug,$debug_status;
 if (!isset($debug)) $debug=0;
-if ($debug)
-{
-	$proj_home="http://elkinlab.local";
-  $sweet_home=$proj_home;
-}
-else 
-{
-	$proj_home="http://eas.jinr.ru";
-  $sweet_home=$proj_home."/labs";
-}
+$proj_home="http://livni.jinr.ru";
+//if ($debug)
+//{
+//	$proj_home="http://elkinlab.local";
+//  $sweet_home=$proj_home;
+//}
+//else 
+//{
+//	$proj_home="http://eas.jinr.ru";
+//  $sweet_home=$proj_home."/labs";
+//}
 if (!$debug) {$stations_status="/projects/livni/software/eas.cron.d/status.dat";}
 
 
@@ -79,13 +80,20 @@ else {
     
     $context['uuid']=120;
     $context['user']="Elkin";
-    $context['utype']=  my_getcookie("utype");
+    $context['utype']=  "newbie";
     $context['visits']=100;
     $context['jobs']=100;
     $context['lang']="ru";
 }
 //</COOKIES>
-
+if ($context['utype']=="visitor" && !isset($indexdir))
+{
+    if (!isset($shar))
+    {
+	$host  = $_SERVER['HTTP_HOST'];
+	header("Location: http://$host");
+    }
+}
 
 //function vars2js()
 //{

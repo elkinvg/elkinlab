@@ -148,6 +148,7 @@ $jobs_table = array(
     'failed'=>'Failed',
     'gotojob' => 'go to the Job\'s page ',
     'add_descr'=>'add/change description',
+    'stdout'=>'Show/hide stdout.txt',
 );
 ?>
 

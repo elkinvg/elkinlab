@@ -1,4 +1,5 @@
 <?php
+$shar=true;
 require './common_page.inc.php';
 ?>
 <html>

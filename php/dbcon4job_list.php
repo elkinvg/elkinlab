@@ -92,8 +92,10 @@ elseif ($oper == "list") {
     $join = " jobs.job_id=jobpars.job_id AND jobpars.name='COMMENT' AND jobs.task_id=jobpars.task_id AND jobs.task_id=tasks.task_id AND users.uuid=jobs.user_id";
     $where = "WHERE " . $join . " AND jobs.job_status<10 AND UNIX_TIMESTAMP(jobs.started) >=" . $params['startTime'] . " AND UNIX_TIMESTAMP(jobs.started) <= " . $params['finishTime'];
     $order = " ORDER BY jobs.job_id DESC LIMIT 300";
+    
+    if ($utype != "expert" && $utype != "admin") $if = " AND jobs.user_id = $ouuid ";
 
-    $query = $select . $where . $order;
+    $query = $select . $where . $order .  $if;
     if (isset($params['uiid']) && !empty($params['uiid'])) {
 	$query = $query . " WHERE jobs.user_id=" . $params['uiid'];
     }
