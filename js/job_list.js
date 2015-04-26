@@ -25,8 +25,10 @@ $(document).ready(function () {
 	var upto = new Date();
 	upto.setHours(23, 59);
 
-	my_setcookie("jobs_from", from.getTime().toString(), exp_day, "/");
-	my_setcookie("jobs_to", upto.getTime().toString(), exp_day, "/");
+	localStorage.setItem("jobs_from",from.getTime().toString());
+	localStorage.setItem("jobs_to",upto.getTime().toString());
+	//my_setcookie("jobs_from", from.getTime().toString(), exp_day, "/");
+	//my_setcookie("jobs_to", upto.getTime().toString(), exp_day, "/");
 	$("#data_beg").val(from.toString());
 	$("#data_end").val(upto.toString());
 	updateTable('list');
@@ -96,8 +98,10 @@ $(document).ready(function () {
 	    var upto = new Date($("#data_end").val());
 	    from.setHours(0, 0);
 	    upto.setHours(23, 59);
-	    my_setcookie("jobs_from", from.getTime().toString(), exp_day, "/");
-	    my_setcookie("jobs_to", upto.getTime().toString(), exp_day, "/");
+	    localStorage.setItem("jobs_from",from.getTime().toString());
+	    localStorage.setItem("jobs_to",upto.getTime().toString());
+	    //my_setcookie("jobs_from", from.getTime().toString(), exp_day, "/");
+	    //my_setcookie("jobs_to", upto.getTime().toString(), exp_day, "/");
 //                        //$("#errordiv").append("from="+from.getTime()+"<br>");
 //                        //$("#errordiv").append("to="+upto.getTime()+"<br>");
 	    //.getTime()/1000

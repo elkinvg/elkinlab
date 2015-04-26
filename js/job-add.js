@@ -168,8 +168,11 @@ function dialog() {
 				var upto = new Date();
 				upto.setHours(23, 59);				
 				
-				my_setcookie("jobs_from", from.getTime().toString(), exp_day, "/");
-				my_setcookie("jobs_to", upto.getTime().toString(), exp_day, "/");
+				
+				localStorage.setItem("jobs_from",from.getTime().toString());
+				localStorage.setItem("jobs_to",upto.getTime().toString());
+				//my_setcookie("jobs_from", from.getTime().toString(), exp_day, "/");
+				//my_setcookie("jobs_to", upto.getTime().toString(), exp_day, "/");
 				window.location = "../php/job_list.php";
 			    }
 			}, "json");
