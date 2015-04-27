@@ -56,9 +56,9 @@ if ($oper == "first") {
 	$if = " AND jobs.user_id = $ouuid ";
     $query = $select . $where . $if . $order;
 
-    if (isset($params['uiid']) && !empty($params['uiid'])) {
-	$query = $query . " WHERE jobs.user_id=" . $params['uiid'];
-    }
+//    if (isset($params['uiid']) && !empty($params['uiid'])) {
+//	$query = $query . " WHERE jobs.user_id=" . $params['uiid'];
+//    }
     $res = mysqli_query($link, $query);
     //$out = array();
     if (!$res) {
@@ -95,10 +95,10 @@ elseif ($oper == "list") {
     
     if ($utype != "expert" && $utype != "admin") $if = " AND jobs.user_id = $ouuid ";
 
-    $query = $select . $where . $order .  $if;
-    if (isset($params['uiid']) && !empty($params['uiid'])) {
-	$query = $query . " WHERE jobs.user_id=" . $params['uiid'];
-    }
+    $query = $select . $where .  $if . $order;
+//    if (isset($params['uiid']) && !empty($params['uiid'])) {
+//	$query = $query . " WHERE jobs.user_id=" . $params['uiid'];
+//    }
     $res = mysqli_query($link, $query);
     //$out = array();
     if (!$res) {
