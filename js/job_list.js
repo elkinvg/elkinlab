@@ -122,7 +122,7 @@ $(document).ready(function () {
 	function (data) {
 	    var tr = "";
 
-	    for (var n = 0; n < data.val.length - 1; n++)
+	    for (var n = 0; n < data.val.length; n++)
 	    {
 		var utype = "", job_status = "";
 		var job_time = data.val[n].started;
