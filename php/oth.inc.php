@@ -6,8 +6,15 @@ global $pp;
 echo "<link href='" . $pp . "css/common.css' rel='stylesheet' type='text/css' />";
 require $pp . "lang/$context[lang]/msg.inc.php";
 require $pp . "lang/$context[lang]/dic.inc.php";
-
-
+echo "<link href='" . $pp . "css/jquery.fancybox.css' rel='stylesheet' type='text/css' />";
+echo "<script type='text/javascript' src='" . $pp . "js/jquery/jquery.fancybox.pack.js'></script>\n";
+?>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".fancybox").fancybox();
+    });
+</script>       
+<?php
 //lang-dependent:
 //        require "../lang/$context[lang]/msg.inc.php";
 //        require "../lang/$context[lang]/dic.inc.php";
@@ -33,7 +40,7 @@ function pHeader($logo) {
 }
 
 function pFooter() {
-    global $dic, $stations_status;
+    global $dic, $stations_status,$pp;
     echo "</div >";
 //    echo "<tr><td class='ui-widget-content ui-corner-bottom pfooter' colspan=2 align=right><a href='#' class='tt_switch' status=1 title='$dic[help_off_title_tt]'>$dic[help_off_title]</a></td></tr>";
     $status = StationsStatus($stations_status);
@@ -43,9 +50,9 @@ function pFooter() {
     echo "<tr>";
     foreach ($status as $st) {
 	if ($st['ping'] == $st['data'] && $st['ping'] == $st['daq'] && $st['ping'] == 0)
-	    echo "<td>$st[id] <span style='color: green; font-size:120%'>&#9679</span> <td>";
+	    echo "<td class='stations' id='Station_$st[id]'><a class='fancybox' href='".$pp."images/stations/Station_$st[id].png'>$st[id] <span style='color: green; font-size:120%'>&#9679</span> </a></td>";
 	else
-	    echo "<td>$st[id] <span class='status_st' style='color: red; font-size:120%'>&#9679</span> <td>";
+	    echo "<td class='stations' id='Station_$st[id]'><a class='fancybox' href='".$pp."images/stations/Station_$st[id].png'>$st[id] <span class='status_st' style='color: red; font-size:120%'>&#9679</span> </a></td>";
     }
     echo "</tr>";
     echo "</table>";

@@ -8,7 +8,7 @@ nbproject/
 *.log
 bck/*
 css/__history/*
-css/jquery*
+css/jquery/*
 js/jquery/jquery*/*
 tmp/*
 users/*
