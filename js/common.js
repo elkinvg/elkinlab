@@ -13,19 +13,23 @@ var today = new Date();
 var exp_day = new Date(today.getTime() + 24 * 60 * 60 * 1000);
 //var exp_year = new Date(today.getTime() + 365 * 24 * 60 * 60 * 1000);
 
-var timeago = new Date("2009-01-01");
+var timeago = new Date("2009-01-01".replace(/-/g, "/"));
 //var jobs_from = my_getcookie("jobs_from");
 //var jobs_to = my_getcookie("jobs_to");
 var jobs_from = localStorage.getItem("jobs_from");
 var jobs_to = localStorage.getItem("jobs_to");
 //if(session_id() == '')	session_start();
 //var jobs_from = $
-
-if (jobs_from === null)
+	var tmpstr = timeago.getTime().toString();
+	var tmpstr2 = today.getTime().toString();
+	
+if (jobs_from === null || jobs_from === "NaN")
     //my_setcookie("jobs_from", timeago.getTime().toString(), exp_day, "/");
+
 	localStorage.setItem("jobs_from",timeago.getTime().toString());
-if (jobs_to === null)
+if (jobs_to === null || jobs_to === "NaN")
     //my_setcookie("jobs_to", today.getTime().toString(), exp_day, "/");
+	
 	localStorage.setItem("jobs_to",today.getTime().toString());
 
 var isTranslate = false;

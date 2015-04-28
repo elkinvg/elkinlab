@@ -94,8 +94,8 @@ $(document).ready(function () {
 	}
 	else if (operation == 'list')
 	{
-	    var from = new Date($("#data_beg").val());
-	    var upto = new Date($("#data_end").val());
+	    var from = new Date($("#data_beg").val().replace(/-/g, "/"));
+	    var upto = new Date($("#data_end").val().replace(/-/g, "/"));
 	    from.setHours(0, 0);
 	    upto.setHours(23, 59);
 	    localStorage.setItem("jobs_from",from.getTime().toString());
