@@ -1,5 +1,5 @@
 <?php
-$fileLocation = getenv("DOCUMENT_ROOT") . "./labs/hlpme/cnt.txt";
+$fileLocation = "./hlpme/cnt.txt";
     $file = fopen( $fileLocation, "a+" );
     
     $info = $context['user'] . " " . date("Y-m-d H:i:s")  ."\n";
@@ -7,4 +7,3 @@ $fileLocation = getenv("DOCUMENT_ROOT") . "./labs/hlpme/cnt.txt";
     fwrite( $file, $info );
     fclose( $file );
 ?>
-
