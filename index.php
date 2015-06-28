@@ -28,6 +28,8 @@ require './php/common_page.inc.php';
 $nprhead=true;
 require './php/common_page.inc.php';
 
+require './php/cnt.php'; // temporary
+
 echo "<script type='text/javascript' src='js/main.js'></script>";
 //require "php/config.inc.php";
 //require "lang/$context[lang]/dic.inc.php";
