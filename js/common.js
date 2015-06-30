@@ -186,6 +186,7 @@ var context = new Object();
 //    context.jobs = 0;//undefined - 20.04.2011 13:38:54
 //
 context.lang = my_getcookie("lang");
+if (!context.lang) context.lang = "en";
 //context.langs = new Array("en", "ru", "cz", "bg"); //actually this is the list we support, but not a lang. code (see ISO 639-2 http://www.w3.org/WAI/ER/IG/ert/iso639.htm)
 //if (!context.lang) 	//if cookie is not set - try to define a user language
 //{
